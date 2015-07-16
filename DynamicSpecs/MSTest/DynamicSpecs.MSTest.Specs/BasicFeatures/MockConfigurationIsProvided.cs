@@ -1,11 +1,9 @@
-﻿namespace DynamicSpecs.MSTest.Specs.BasicFunctions
+﻿namespace DynamicSpecs.MSTest.Specs.BasicFeatures
 {
-    using FakeItEasy;
-
+    using DynamicSpecs.Core;
     using DynamicSpecs.MSTest.Specs.ExampleClasses;
 
-    using DynamicSpecs.Core;
-
+    using FakeItEasy;
 
     public class MockConfigurationIsProvided : ISupport
     {

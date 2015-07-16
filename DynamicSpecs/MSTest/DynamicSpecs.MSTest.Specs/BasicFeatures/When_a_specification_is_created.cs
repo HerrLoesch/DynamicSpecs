@@ -1,10 +1,12 @@
-﻿namespace SpecsSharp.Specs.BasicFunctions
+﻿namespace DynamicSpecs.MSTest.Specs.BasicFeatures
 {
     using DynamicSpecs.MSTest;
     using DynamicSpecs.MSTest.Specs.ExampleClasses;
+
     using FluentAssertions;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    
+
     [TestClass]
     public class When_a_specification_is_created : Specifies<DummyClass>
     {

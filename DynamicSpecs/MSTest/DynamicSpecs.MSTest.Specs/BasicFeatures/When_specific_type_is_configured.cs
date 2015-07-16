@@ -1,8 +1,9 @@
-﻿namespace SpecsSharp.Specs
+﻿namespace DynamicSpecs.MSTest.Specs.BasicFeatures
 {
     using DynamicSpecs.Core;
     using DynamicSpecs.MSTest;
     using DynamicSpecs.MSTest.Specs.ExampleClasses;
+
     using FluentAssertions;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;

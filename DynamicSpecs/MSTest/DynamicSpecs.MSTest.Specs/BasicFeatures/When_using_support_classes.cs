@@ -1,4 +1,4 @@
-﻿namespace DynamicSpecs.MSTest.Specs.BasicFunctions
+﻿namespace DynamicSpecs.MSTest.Specs.BasicFeatures
 {
     using DynamicSpecs.MSTest.Specs.ExampleClasses;
 

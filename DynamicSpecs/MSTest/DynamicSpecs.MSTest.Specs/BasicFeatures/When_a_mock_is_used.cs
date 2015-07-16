@@ -1,11 +1,11 @@
-﻿namespace SpecsSharp.Specs.BasicFunctions
+﻿namespace DynamicSpecs.MSTest.Specs.BasicFeatures
 {
-    using FluentAssertions;
-    
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using DynamicSpecs.MSTest.Specs.ExampleClasses;
     using DynamicSpecs.MSTest;
+    using DynamicSpecs.MSTest.Specs.ExampleClasses;
+
+    using FluentAssertions;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class When_a_mock_is_used : Specifies<DummyClass>
