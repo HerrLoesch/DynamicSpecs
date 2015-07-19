@@ -1,14 +1,12 @@
-﻿namespace DynamicSpecs.MSTest.Specs.BasicFeatures
+﻿namespace DynamicSpecs.NUnit.Specs.BasicFeatures
 {
     using DynamicSpecs.Core;
-    using DynamicSpecs.MSTest;
-    using DynamicSpecs.MSTest.Specs.ExampleClasses;
+    using DynamicSpecs.NUnit.Specs.ExampleClasses;
 
     using FluentAssertions;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using global::NUnit.Framework;
 
-    [TestClass]
     public class When_specific_type_is_configured : Specifies<DummyClass>
     {
         private DummyServiceImplementation registeredInstance;
@@ -19,7 +17,7 @@
             typeRegistration.Register<DummyServiceImplementation, IAmAServiceDummy>(this.registeredInstance);
         }
 
-        [TestMethod]
+        [Test]
         public void Then_the_specific_type_must_be_returned_instead_of_a_mock()
         {
             var resultInstance = this.GetInstance<IAmAServiceDummy>();

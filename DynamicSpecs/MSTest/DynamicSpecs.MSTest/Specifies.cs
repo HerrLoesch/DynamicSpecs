@@ -8,12 +8,6 @@ namespace DynamicSpecs.MSTest
 
     public class Specifies<T> : SpecifiesBaseState<T>
     {
-        [TestInitialize]
-        public void Run()
-        {
-            base.SetupEachSpec();
-        }
-
         private readonly TypeRegistration typeRegistration;
         
         protected Specifies()
@@ -29,6 +23,12 @@ namespace DynamicSpecs.MSTest
         protected override IResolveTypes GetTypeResolver()
         {
             return this.typeRegistration;
+        }
+
+        [TestInitialize]
+        public override void Setup()
+        {
+            base.SetupEachSpec();
         }
     }
 }

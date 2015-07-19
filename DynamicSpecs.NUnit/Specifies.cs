@@ -6,23 +6,29 @@
     using global::NUnit.Framework;
 
     [TestFixture]
-    public abstract class Specifies<T> : SpecifiesBaseState<T>
+    public class Specifies<T> : SpecifiesBaseState<T>
     {
-        private readonly TypeRegistration typeRegistration;
+        public TypeRegistration Registration { get; private set; }
 
-        protected Specifies()
+        public Specifies()
         {
-            this.typeRegistration = new TypeRegistration();
+            this.Registration = new TypeRegistration();
         }
 
         protected override IRegisterTypes GetTypeRegistration()
         {
-            return this.typeRegistration;
+            return this.Registration;
         }
 
         protected override IResolveTypes GetTypeResolver()
         {
-            return this.typeRegistration;
+            return this.Registration;
+        }
+
+        [TestFixtureSetUp]
+        public override void Setup()
+        {
+            base.SetupEachSpec();
         }
     }
 }

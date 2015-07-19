@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DynamicSpecs.NUnit")]
+[assembly: AssemblyTitle("DynamicSpecs.NUnit.Specs")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DynamicSpecs.NUnit")]
+[assembly: AssemblyProduct("DynamicSpecs.NUnit.Specs")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("353d1c42-176c-481c-ba0b-e4a635464ad2")]
+[assembly: Guid("95c6f518-a659-4d69-bcaf-ceb5fb7ef096")]
 
 // Version information for an assembly consists of the following four values:
 //
