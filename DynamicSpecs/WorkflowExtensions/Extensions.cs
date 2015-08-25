@@ -14,17 +14,23 @@ namespace DynamicSpecs.Core.WorkflowExtensions
 
         private void Add(Type type, IExtend extension)
         {
-            if (!extensions.ContainsKey(type))
+            lock (extensions)
             {
-                extensions.Add(type, new List<IExtend>());
-            }
+                if (!extensions.ContainsKey(type))
+                {
+                    extensions.Add(type, new List<IExtend>());
+                }
 
-            extensions[type].Add(extension);
+                extensions[type].Add(extension);
+            }
         }
 
         internal static bool TryGetValue(Type key, out List<IExtend> value)
         {
-            return extensions.TryGetValue(key, out value);
+            lock (extensions)
+            {
+                return extensions.TryGetValue(key, out value);
+            }
         }
 
         private static Dictionary<Type, List<IExtend>> extensions = new Dictionary<Type, List<IExtend>>();

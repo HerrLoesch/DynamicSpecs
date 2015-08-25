@@ -95,6 +95,8 @@
     <Compile Include="WorkflowExtensions\InformationProvider.cs" />
     <Compile Include="WorkflowExtensions\IProvideInformation.cs" />
     <Compile Include="WorkflowExtensions\IRequestInformation.cs" />
+    <Compile Include="WorkflowExtensions\TypeBased\TypeBasedConfiguration.cs" />
+    <Compile Include="WorkflowExtensions\TypeBased\When_information_is_requested_based_on_a_type_configuration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
