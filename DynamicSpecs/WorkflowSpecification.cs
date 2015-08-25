@@ -2,6 +2,9 @@
 namespace DynamicSpecs.Core
 {
     using System;
+    using System.Collections.Generic;
+
+    using DynamicSpecs.Core.WorkflowExtensions;
 
     /// <summary>
     /// Base class of all specifications, handling the basic workflow.
@@ -11,6 +14,8 @@ namespace DynamicSpecs.Core
     /// </typeparam>
     public abstract class WorkflowSpecification<T> : ISpecify<T>
     {
+        private Type[] specificationsBaseTypes;
+
         /// <summary>
         /// Gets or sets an Instance of the SUT.
         /// </summary>
@@ -135,6 +140,10 @@ namespace DynamicSpecs.Core
         /// </summary>
         private void Initialize()
         {
+            this.DetermineTypesOfThisSpec();
+
+            this.ExecuteOnInitializationExtensions();
+
             this.TypeRegistration = this.GetTypeRegistration();
 
             this.RegisterTypes(this.TypeRegistration);
@@ -142,6 +151,26 @@ namespace DynamicSpecs.Core
             this.TypeResolver = this.GetTypeResolver();
 
             this.SUT = this.CreateSut();
+        }
+
+        private void ExecuteOnInitializationExtensions()
+        {
+            foreach (var baseType in this.specificationsBaseTypes)
+            {
+                List<IExtend> extensions;
+                if (Extensions.TryGetValue(baseType, out extensions))
+                {
+                    foreach (var extension in extensions)
+                    {
+                        extension.Extend(this);
+                    }
+                }
+            }
+        }
+
+        private void DetermineTypesOfThisSpec()
+        {
+            this.specificationsBaseTypes = this.GetType().GetInterfaces();
         }
 
         /// <summary>
