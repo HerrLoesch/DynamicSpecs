@@ -42,14 +42,14 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         /// <returns>
         /// Instance with which will be used for additional configuration.
         /// </returns>
-        protected ExtensionPoint<TTarget> Extend<TTarget>() where TTarget : class
+        protected static ExtensionPoint<TTarget> Extend<TTarget>() where TTarget : class
         {
             var extensionPoint = new ExtensionPoint<TTarget>();
-            this.Add(typeof(TTarget), extensionPoint);
+            Add(typeof(TTarget), extensionPoint);
             return extensionPoint;
         }
 
-        private void Add(Type type, IExtend extension)
+        private static void Add(Type type, IExtend extension)
         {
             lock (RegisteredExtensions)
             {

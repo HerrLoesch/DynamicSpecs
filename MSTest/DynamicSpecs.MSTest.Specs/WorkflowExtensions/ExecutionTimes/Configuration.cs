@@ -1,17 +1,16 @@
-﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
+﻿namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes
 {
-    using DynamicSpecs.Core;
     using DynamicSpecs.Core.WorkflowExtensions;
-    using DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.DataProvider;
-    using DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.Interfaces;
+    using DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes.DataProvider;
+    using DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes.Interfaces;
 
-    using global::NUnit.Framework;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    [SetUpFixture]
+    [TestClass]
     public class Configuration : Extensions
     {
-        [SetUp]
-        public void RegisterExtensions()
+        [AssemblyInitialize]
+        public static void RegisterExtensions(TestContext context)
         {
             Extend<IRequestDataByDefault>().With<DataByDefault>();
 

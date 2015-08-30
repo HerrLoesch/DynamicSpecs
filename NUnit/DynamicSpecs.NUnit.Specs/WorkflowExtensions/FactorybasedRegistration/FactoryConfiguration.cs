@@ -10,7 +10,7 @@
         [SetUp]
         public void RegisterExtensions()
         {
-            this.Extend<IRequestData>().With<IProvideData>(() => new DataProvider());
+            Extend<IRequestData>().With<IProvideData>(() => new DataProvider());
         }
     }
 }
