@@ -10,16 +10,11 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
     {
         public int Data { get; set; }
 
-        /// <summary>
-        /// Method containing all code needed during the given phase.
-        /// </summary>
         public override void Given()
         {
             this.DataOfGiven = this.Data;
         }
 
-        /// <summary>
-        /// </summary>
         public int DataOfGiven { get; set; }
 
         [Test]

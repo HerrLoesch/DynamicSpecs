@@ -4,6 +4,5 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions
 
     public interface IProvideData : IExtend<IRequestData>
     {
-
     }
 }

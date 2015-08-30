@@ -1,5 +1,4 @@
-﻿
-namespace DynamicSpecs.Core
+﻿namespace DynamicSpecs.Core
 {
     using System;
     using System.Collections.Generic;
@@ -98,21 +97,21 @@ namespace DynamicSpecs.Core
             
             this.TypeRegistration = this.GetTypeRegistration();
 
-            this.ExecuteExtensions(WorkflowSteps.TypeRegistration);
+            this.ExecuteExtensions(WorkflowPosition.TypeRegistration);
 
             this.RegisterTypes(this.TypeRegistration);
 
             this.TypeResolver = this.GetTypeResolver();
 
-            this.ExecuteExtensions(WorkflowSteps.SUTCreation);
+            this.ExecuteExtensions(WorkflowPosition.SUTCreation);
 
             this.SUT = this.CreateSut();
 
-            this.ExecuteExtensions(WorkflowSteps.Given, WorkflowSteps.Default);
+            this.ExecuteExtensions(WorkflowPosition.Given, WorkflowPosition.Default);
 
             this.Given();
 
-            this.ExecuteExtensions(WorkflowSteps.When);
+            this.ExecuteExtensions(WorkflowPosition.When);
 
             this.When();
         }
@@ -152,7 +151,11 @@ namespace DynamicSpecs.Core
             return this.TypeResolver.Resolve<T>();
         }
 
-        private void ExecuteExtensions(params WorkflowSteps[] targetSteps)
+        /// <summary>
+        /// Executes all extensions for <c>this</c> instance based on a workflow step. 
+        /// </summary>
+        /// <param name="targetSteps">The steps for which extensions must be registered to be executed.</param>
+        private void ExecuteExtensions(params WorkflowPosition[] targetSteps)
         {
             foreach (var baseType in this.specificationsBaseTypes)
             {
@@ -167,6 +170,9 @@ namespace DynamicSpecs.Core
             }
         }
 
+        /// <summary>
+        /// Determines the types and base types of <c>this</c> spec.
+        /// </summary>
         private void DetermineTypesOfThisSpec()
         {
             this.specificationsBaseTypes = this.GetType().GetInterfaces();

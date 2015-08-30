@@ -107,7 +107,7 @@
     <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_for_a_default_step.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_for_each_phase.cs" />
     <Compile Include="WorkflowExtensions\FactorybasedRegistration\FactoryConfiguration.cs" />
-    <Compile Include="WorkflowExtensions\FactorybasedRegistration\WhenDataIsRequestedBasedOnAFactoryConfiguration.cs" />
+    <Compile Include="WorkflowExtensions\FactorybasedRegistration\When_data_is_requested_based_on_a_factory_configuration.cs" />
     <Compile Include="WorkflowExtensions\DataProvider.cs" />
     <Compile Include="WorkflowExtensions\IProvideData.cs" />
     <Compile Include="WorkflowExtensions\IRequestData.cs" />

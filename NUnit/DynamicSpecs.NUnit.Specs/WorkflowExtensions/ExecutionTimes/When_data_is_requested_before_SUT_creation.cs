@@ -10,10 +10,6 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
     {
         public int Data { get; set; }
 
-        /// <summary>
-        /// Creates the system Under Test and resolves all it's dependencies.
-        /// </summary>
-        /// <returns>Instance of the SUT.</returns>
         protected override object CreateSut()
         {
             this.DataOfCreatSut = this.Data;

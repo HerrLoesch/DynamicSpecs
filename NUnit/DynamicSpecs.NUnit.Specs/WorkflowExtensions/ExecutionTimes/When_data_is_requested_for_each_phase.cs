@@ -9,20 +9,15 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
 
     public class When_data_is_requested_for_each_phase : Specifies<object>, IRequestDataBeforeTypeRegistration
     {
-
         protected override void RegisterTypes(IRegisterTypes typeRegistration)
         {
             this.DataOfRegisterTypes = this.Data;
             base.RegisterTypes(typeRegistration);
         }
 
-        /// <summary>
-        /// </summary>
         public int DataOfRegisterTypes { get; set; }
 
-
         public int Data { get; set; }
-
 
         [Test]
         public void Then_data_is_available_during_type_registration()

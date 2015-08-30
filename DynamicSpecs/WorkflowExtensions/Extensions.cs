@@ -3,36 +3,63 @@ namespace DynamicSpecs.Core.WorkflowExtensions
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Class which is used to register extensions.
+    /// </summary>
     public class Extensions
     {
-        protected ExtensionPoint<T> Extend<T>() where T : class 
+        /// <summary>
+        /// All registered extensions.
+        /// </summary>
+        private static readonly Dictionary<Type, List<IExtend>> RegisteredExtensions = new Dictionary<Type, List<IExtend>>();
+
+        /// <summary>
+        /// Tries the get a list of extensions for the given type.
+        /// </summary>
+        /// <param name="key">
+        /// The type for which to request the extensions.
+        /// </param>
+        /// <param name="value">
+        /// The list of extensions registered for the type.
+        /// </param>
+        /// <returns>
+        /// True if extensions were registered, false if not.
+        /// </returns>
+        internal static bool TryGetValue(Type key, out List<IExtend> value)
         {
-            var extensionPoint = new ExtensionPoint<T>();
-            this.Add(typeof(T), extensionPoint);
+            lock (RegisteredExtensions)
+            {
+                return RegisteredExtensions.TryGetValue(key, out value);
+            }
+        }
+
+        /// <summary>
+        /// Defines that an extension for the target type needs to be registered.
+        /// </summary>
+        /// <typeparam name="TTarget">
+        /// Type which will be extended.
+        /// </typeparam>
+        /// <returns>
+        /// Instance with which will be used for additional configuration.
+        /// </returns>
+        protected ExtensionPoint<TTarget> Extend<TTarget>() where TTarget : class
+        {
+            var extensionPoint = new ExtensionPoint<TTarget>();
+            this.Add(typeof(TTarget), extensionPoint);
             return extensionPoint;
         }
 
         private void Add(Type type, IExtend extension)
         {
-            lock (extensions)
+            lock (RegisteredExtensions)
             {
-                if (!extensions.ContainsKey(type))
+                if (!RegisteredExtensions.ContainsKey(type))
                 {
-                    extensions.Add(type, new List<IExtend>());
+                    RegisteredExtensions.Add(type, new List<IExtend>());
                 }
 
-                extensions[type].Add(extension);
+                RegisteredExtensions[type].Add(extension);
             }
         }
-
-        internal static bool TryGetValue(Type key, out List<IExtend> value)
-        {
-            lock (extensions)
-            {
-                return extensions.TryGetValue(key, out value);
-            }
-        }
-
-        private static Dictionary<Type, List<IExtend>> extensions = new Dictionary<Type, List<IExtend>>();
     }
 }
