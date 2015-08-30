@@ -104,9 +104,11 @@ namespace DynamicSpecs.Core
 
             this.TypeResolver = this.GetTypeResolver();
 
+            this.ExecuteExtensions(WorkflowSteps.SUTCreation);
+
             this.SUT = this.CreateSut();
 
-            this.ExecuteExtensions(WorkflowSteps.Given);
+            this.ExecuteExtensions(WorkflowSteps.Given, WorkflowSteps.Default);
 
             this.Given();
 
@@ -150,14 +152,14 @@ namespace DynamicSpecs.Core
             return this.TypeResolver.Resolve<T>();
         }
 
-        private void ExecuteExtensions(WorkflowSteps targetSteps)
+        private void ExecuteExtensions(params WorkflowSteps[] targetSteps)
         {
             foreach (var baseType in this.specificationsBaseTypes)
             {
                 List<IExtend> extensions;
                 if (Extensions.TryGetValue(baseType, out extensions))
                 {
-                    foreach (var extension in extensions.Where(x => x.WorkflowPosition == targetSteps).ToList())
+                    foreach (var extension in extensions.Where(x => targetSteps.Contains(x.WorkflowPosition)).ToList())
                     {
                         extension.Extend(this);
                     }

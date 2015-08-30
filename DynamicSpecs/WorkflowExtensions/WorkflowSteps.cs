@@ -1,14 +1,23 @@
 ﻿namespace DynamicSpecs.Core.WorkflowExtensions
 {
-    /// <summary>
-    /// </summary>
     public enum WorkflowSteps
     {
+        Default,
+
         /// <summary>
         /// </summary>
-        Given,
+        TypeRegistration, 
 
-        TypeRegistration,
+        /// <summary>
+        /// </summary>
+        SUTCreation, 
+
+        /// <summary>
+        /// </summary>
+        Given, 
+
+        /// <summary>
+        /// </summary>
         When
     }
 }
