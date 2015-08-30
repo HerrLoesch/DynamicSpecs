@@ -11,6 +11,6 @@ namespace DynamicSpecs.Core.WorkflowExtensions
 
         /// <summary>
         /// </summary>
-        WorkflowStep WorkflowPosition { get; }
+        WorkflowSteps WorkflowPosition { get; }
     }
 }

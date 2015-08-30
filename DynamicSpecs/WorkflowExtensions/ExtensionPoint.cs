@@ -19,7 +19,7 @@
 
         /// <summary>
         /// </summary>
-        public WorkflowStep WorkflowPosition { get; private set; }
+        public WorkflowSteps WorkflowPosition { get; private set; }
 
         /// <summary>
         /// </summary>
@@ -91,7 +91,7 @@
         /// </summary>
         /// <param name="targetStep">
         /// </param>
-        public void Before(WorkflowStep targetStep)
+        public void Before(WorkflowSteps targetStep)
         {
             this.WorkflowPosition = targetStep;
         }

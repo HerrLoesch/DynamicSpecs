@@ -9,7 +9,7 @@
         [Test]
         public void Then_the_information_is_provided()
         {
-            this.Data.ShouldBeEquivalentTo(42);
+            this.Data.ShouldBeEquivalentTo(DataProvider.Data);
         }
 
         public int Data { get; set; }

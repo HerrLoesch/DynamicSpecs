@@ -1,11 +1,16 @@
-﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
+namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
 {
     using DynamicSpecs.Core;
+    using DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.Interfaces;
 
-    /// <summary>
-    /// </summary>
-    public class ExtensionSpecsBaseStructure : Specifies<object>
+    using FluentAssertions;
+
+    using global::NUnit.Framework;
+
+    public class When_data_is_requested_for_each_phase : Specifies<object>, IRequestDataBeforeTypeRegistration, IRequestDataBeforeGiven, IRequestDataBeforeWhen
     {
+        #region infrastructure
+
         /// <summary>
         /// Creates the system Under Test and resolves all it's dependencies.
         /// </summary>
@@ -31,7 +36,7 @@
         /// <summary>
         /// </summary>
         public int DataOfRegisterTypes { get; set; }
-        
+
         /// <summary>
         /// </summary>
         public int DataOfCreatSut { get; set; }
@@ -61,5 +66,25 @@
         /// <summary>
         /// </summary>
         public int DataOfWhen { get; set; }
+
+        #endregion
+        
+        [Test]
+        public void Then_data_is_available_during_type_registration()
+        {
+            this.DataOfRegisterTypes.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+        }
+
+        [Test]
+        public void Then_data_is_available_during_given_phase()
+        {
+            this.DataOfRegisterTypes.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+        }
+
+        [Test]
+        public void Then_data_is_available_during_when_phase()
+        {
+            this.DataOfWhen.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+        }
     }
 }

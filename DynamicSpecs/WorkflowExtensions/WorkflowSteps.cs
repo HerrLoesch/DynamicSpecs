@@ -2,12 +2,13 @@
 {
     /// <summary>
     /// </summary>
-    public enum WorkflowStep
+    public enum WorkflowSteps
     {
         /// <summary>
         /// </summary>
         Given,
 
-        TypeRegistration
+        TypeRegistration,
+        When
     }
 }

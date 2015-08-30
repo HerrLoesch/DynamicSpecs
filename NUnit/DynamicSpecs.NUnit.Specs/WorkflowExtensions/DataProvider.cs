@@ -2,9 +2,11 @@
 {
     public class DataProvider : IProvideData
     {
+        public static readonly int Data = 42;
+
         public void Extend(IRequestData target)
         {
-            target.Data = 42;
+            target.Data = Data;
         }
     }
 }
