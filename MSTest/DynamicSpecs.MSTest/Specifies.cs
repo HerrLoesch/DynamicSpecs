@@ -28,7 +28,7 @@ namespace DynamicSpecs.MSTest
         [TestInitialize]
         public override void Setup()
         {
-            base.SetupEachSpec();
+            base.Run();
         }
     }
 }

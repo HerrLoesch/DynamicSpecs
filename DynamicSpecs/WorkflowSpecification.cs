@@ -1,7 +1,10 @@
-﻿
-namespace DynamicSpecs.Core
+﻿namespace DynamicSpecs.Core
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using DynamicSpecs.Core.WorkflowExtensions;
 
     /// <summary>
     /// Base class of all specifications, handling the basic workflow.
@@ -11,6 +14,8 @@ namespace DynamicSpecs.Core
     /// </typeparam>
     public abstract class WorkflowSpecification<T> : ISpecify<T>
     {
+        private Type[] specificationsBaseTypes;
+
         /// <summary>
         /// Gets or sets an Instance of the SUT.
         /// </summary>
@@ -78,7 +83,7 @@ namespace DynamicSpecs.Core
         }
 
         /// <summary>
-        /// This method is called by the child class to call <seealso cref="SetupEachSpec" /> when
+        /// This method is called by the child class to call <seealso cref="Run" /> when
         /// ever the testing framework starts a testrun for a particular spec.
         /// </summary>
         public abstract void Setup();
@@ -86,11 +91,27 @@ namespace DynamicSpecs.Core
         /// <summary>
         /// Executes all needed code necessary for a test run of this instance in a particular order. 
         /// </summary>
-        protected void SetupEachSpec()
+        protected void Run()
         {
-            this.Initialize();
+            this.DetermineTypesOfThisSpec();
+            
+            this.TypeRegistration = this.GetTypeRegistration();
+
+            this.ExecuteExtensions(WorkflowPosition.TypeRegistration);
+
+            this.RegisterTypes(this.TypeRegistration);
+
+            this.TypeResolver = this.GetTypeResolver();
+
+            this.ExecuteExtensions(WorkflowPosition.SUTCreation);
+
+            this.SUT = this.CreateSut();
+
+            this.ExecuteExtensions(WorkflowPosition.Given, WorkflowPosition.Default);
 
             this.Given();
+
+            this.ExecuteExtensions(WorkflowPosition.When);
 
             this.When();
         }
@@ -131,17 +152,30 @@ namespace DynamicSpecs.Core
         }
 
         /// <summary>
-        /// Initializes the specification instance.
+        /// Executes all extensions for <c>this</c> instance based on a workflow step. 
         /// </summary>
-        private void Initialize()
+        /// <param name="targetSteps">The steps for which extensions must be registered to be executed.</param>
+        private void ExecuteExtensions(params WorkflowPosition[] targetSteps)
         {
-            this.TypeRegistration = this.GetTypeRegistration();
+            foreach (var baseType in this.specificationsBaseTypes)
+            {
+                List<IExtend> extensions;
+                if (Extensions.TryGetValue(baseType, out extensions))
+                {
+                    foreach (var extension in extensions.Where(x => targetSteps.Contains(x.WorkflowPosition)).ToList())
+                    {
+                        extension.Extend(this);
+                    }
+                }
+            }
+        }
 
-            this.RegisterTypes(this.TypeRegistration);
-
-            this.TypeResolver = this.GetTypeResolver();
-
-            this.SUT = this.CreateSut();
+        /// <summary>
+        /// Determines the types and base types of <c>this</c> spec.
+        /// </summary>
+        private void DetermineTypesOfThisSpec()
+        {
+            this.specificationsBaseTypes = this.GetType().GetInterfaces();
         }
 
         /// <summary>

@@ -31,7 +31,7 @@
         [TestFixtureSetUp]
         public override void Setup()
         {
-            base.SetupEachSpec();
+            base.Run();
         }
     }
 }

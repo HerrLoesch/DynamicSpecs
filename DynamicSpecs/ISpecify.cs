@@ -18,7 +18,7 @@
     public interface ISpecify
     {
         /// <summary>
-        /// Method containing all code needed during the when phase.
+        /// Method containing all code needed during the given phase.
         /// </summary>
         void Given();
 
@@ -28,7 +28,7 @@
         void When();
 
         /// <summary>
-        /// Method containing all code needed during the when phase.
+        /// Method containing all code needed during the given phase.
         /// </summary>
         /// <param name="supporter">
         /// Class containing support code for a test run.
