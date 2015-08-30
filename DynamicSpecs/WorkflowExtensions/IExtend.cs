@@ -8,5 +8,9 @@ namespace DynamicSpecs.Core.WorkflowExtensions
     internal interface IExtend
     {
         void Extend(object target);
+
+        /// <summary>
+        /// </summary>
+        WorkflowStep WorkflowPosition { get; }
     }
 }

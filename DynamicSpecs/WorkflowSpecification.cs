@@ -3,6 +3,7 @@ namespace DynamicSpecs.Core
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using DynamicSpecs.Core.WorkflowExtensions;
 
@@ -83,7 +84,7 @@ namespace DynamicSpecs.Core
         }
 
         /// <summary>
-        /// This method is called by the child class to call <seealso cref="SetupEachSpec" /> when
+        /// This method is called by the child class to call <seealso cref="Run" /> when
         /// ever the testing framework starts a testrun for a particular spec.
         /// </summary>
         public abstract void Setup();
@@ -91,9 +92,21 @@ namespace DynamicSpecs.Core
         /// <summary>
         /// Executes all needed code necessary for a test run of this instance in a particular order. 
         /// </summary>
-        protected void SetupEachSpec()
+        protected void Run()
         {
-            this.Initialize();
+            this.DetermineTypesOfThisSpec();
+            
+            this.TypeRegistration = this.GetTypeRegistration();
+
+            this.ExecuteExtensions(WorkflowStep.TypeRegistration);
+
+            this.RegisterTypes(this.TypeRegistration);
+
+            this.TypeResolver = this.GetTypeResolver();
+
+            this.SUT = this.CreateSut();
+
+            this.ExecuteExtensions(WorkflowStep.Given);
 
             this.Given();
 
@@ -135,32 +148,14 @@ namespace DynamicSpecs.Core
             return this.TypeResolver.Resolve<T>();
         }
 
-        /// <summary>
-        /// Initializes the specification instance.
-        /// </summary>
-        private void Initialize()
-        {
-            this.DetermineTypesOfThisSpec();
-
-            this.ExecuteOnInitializationExtensions();
-
-            this.TypeRegistration = this.GetTypeRegistration();
-
-            this.RegisterTypes(this.TypeRegistration);
-
-            this.TypeResolver = this.GetTypeResolver();
-
-            this.SUT = this.CreateSut();
-        }
-
-        private void ExecuteOnInitializationExtensions()
+        private void ExecuteExtensions(WorkflowStep targetStep)
         {
             foreach (var baseType in this.specificationsBaseTypes)
             {
                 List<IExtend> extensions;
                 if (Extensions.TryGetValue(baseType, out extensions))
                 {
-                    foreach (var extension in extensions)
+                    foreach (var extension in extensions.Where(x => x.WorkflowPosition == targetStep).ToList())
                     {
                         extension.Extend(this);
                     }

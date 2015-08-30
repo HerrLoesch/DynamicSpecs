@@ -1,4 +1,4 @@
-﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.TypeBased
+﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.TypebasedRegistration
 {
     using DynamicSpecs.Core.WorkflowExtensions;
 
@@ -10,7 +10,7 @@
         [SetUp]
         public void RegisterExtensions()
         {
-            this.Extend<IRequestInformation>().With<InformationProvider>();
+            this.Extend<IRequestData>().With<DataProvider>();
         }
     }
 }

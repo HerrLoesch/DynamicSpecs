@@ -2,7 +2,7 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions
 {
     using DynamicSpecs.Core.WorkflowExtensions;
 
-    public interface IProvideInformation : IExtend<IRequestInformation>
+    public interface IProvideData : IExtend<IRequestData>
     {
 
     }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions
 {
-    public interface IRequestInformation
+    public interface IRequestData
     {
-        int Information { get; set; }
+        int Data { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.Factorybased
+﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.FactorybasedRegistration
 {
     using DynamicSpecs.Core.WorkflowExtensions;
 
@@ -10,7 +10,7 @@
         [SetUp]
         public void RegisterExtensions()
         {
-            this.Extend<IRequestInformation>().With<IProvideInformation>(() => new InformationProvider());
+            this.Extend<IRequestData>().With<IProvideData>(() => new DataProvider());
         }
     }
 }
