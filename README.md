@@ -12,9 +12,9 @@ There are many great BDD frameworks like [MSpec](https://github.com/machine/mach
 The Idea behind Dynamic Specs is it, to use the infrastructure of widely known frameworks like MS Test and NUnit and extend these frameworks with features to run BDD like tests. The advantage of this is, that Dynamic Specs can be used where ever the host system is used and the user can not only write unit tests in an easy way but also integration and system test.
 
 ##Where can I get it?
-That depends on what you need because dynamic specs consists of three to four parts:
+That depends on what you need, because DynamicSpecs consists of four parts:
 - [DynamicSpecs Core](https://www.nuget.org/packages/DynamicSpecs.Core/) contains the actual engine for each specification as well as the plattform independent parts holding every thing together.
-- [DynamicSpecs.AutoFacItEasy](https://www.nuget.org/packages/DynamicSpecs.AutoFacItEasy/) contains an implementation of the IRegisterTypes and IResolveTypes interfaces which uses [AutoFac](http://autofac.org/) and [FakeItEasy](http://fakeiteasy.github.io/) to provide an auto mocker. I don't need this if you want to use another IoC container or test isolation framework.
+- [DynamicSpecs.AutoFacItEasy](https://www.nuget.org/packages/DynamicSpecs.AutoFacItEasy/) contains an implementation of the IRegisterTypes and IResolveTypes interfaces which uses [AutoFac](http://autofac.org/) and [FakeItEasy](http://fakeiteasy.github.io/) to provide an auto mocker. You don't need this if you want to use another IoC container or test isolation framework.
 - [DynamicSpecs.MSTest](https://www.nuget.org/packages/DynamicSpecs.Core/) is an implementation for the .Net version of MS Test and uses DynamicSpecs.AutoFacItEasy for auto mocking.
 - [DynamicSpecs.NUnit](https://www.nuget.org/packages/DynamicSpecs.NUnit/) is an implementation for the .Net version of NUnit and uses DynamicSpecs.AutoFacItEasy for auto mocking.
  
