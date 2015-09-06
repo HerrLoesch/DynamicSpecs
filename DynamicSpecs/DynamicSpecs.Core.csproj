@@ -34,13 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="DynamicSpecs.Core.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
-=======
->>>>>>> origin/master
     <Compile Include="..\Shared.AssemblyInfo.cs">
       <Link>Properties\Shared.AssemblyInfo.cs</Link>
     </Compile>
