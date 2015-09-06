@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Shared.AssemblyInfo.cs">
+      <Link>Properties\Shared.AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specifies.cs" />
   </ItemGroup>
@@ -53,6 +56,9 @@
       <Project>{5f4822a3-81c4-4cde-a802-24b37c6044f5}</Project>
       <Name>DynamicSpecs.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DynamicSpecs.MSTest.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicSpecs.Core", "DynamicSpecs\DynamicSpecs.Core.csproj", "{5F4822A3-81C4-4CDE-A802-24B37C6044F5}"
 EndProject
@@ -26,6 +26,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C54C3D
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".stuff", ".stuff", "{4D4245A6-1064-4F21-84CF-569C07E2E4E9}"
+	ProjectSection(SolutionItems) = preProject
+		_rebuild_pack.bat = _rebuild_pack.bat
+		readme-hendrik.txt = readme-hendrik.txt
 	EndProjectSection
 EndProject
 Global

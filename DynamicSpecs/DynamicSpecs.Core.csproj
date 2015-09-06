@@ -35,8 +35,12 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="DynamicSpecs.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Shared.AssemblyInfo.cs">
+      <Link>Properties\Shared.AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="IRegisterTypes.cs" />
     <Compile Include="IResolveTypes.cs" />
     <Compile Include="ISpecify.cs" />
