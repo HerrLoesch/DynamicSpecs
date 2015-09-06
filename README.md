@@ -1,4 +1,5 @@
 # DynamicSpecs
+<img align="left" src="https://raw.githubusercontent.com/HerrLoesch/DynamicSpecs/master/Ressources/logo.png" alt="Logo" />
 Dynamic Specs is an easy to use specfication framework. It extends NUnit, MSTest or other similiar testing frameworks with a BDD style workflow.
 
 ##Table of contents
