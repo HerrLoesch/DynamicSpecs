@@ -34,9 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="..\Shared.AssemblyInfo.cs">
+      <Link>Properties\Shared.AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="IRegisterTypes.cs" />
     <Compile Include="IResolveTypes.cs" />
     <Compile Include="ISpecify.cs" />
@@ -49,6 +49,9 @@
     <Compile Include="WorkflowSpecification.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DynamicSpecs.Core.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

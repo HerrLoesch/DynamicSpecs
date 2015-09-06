@@ -28,6 +28,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C54C3D
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".stuff", ".stuff", "{4D4245A6-1064-4F21-84CF-569C07E2E4E9}"
+	ProjectSection(SolutionItems) = preProject
+		_rebuild_pack.bat = _rebuild_pack.bat
+		readme-hendrik.txt = readme-hendrik.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
