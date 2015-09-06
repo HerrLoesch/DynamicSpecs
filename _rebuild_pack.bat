@@ -1,5 +1,15 @@
 @echo off
 
+<<<<<<< HEAD
+=======
+echo.
+echo Target nuget package version:
+echo.
+type Shared.AssemblyInfo.cs | findstr "AssemblyVersion"
+echo.
+pause
+
+>>>>>>> origin/master
 if "%VisualStudioVersion%"=="" call "%ProgramFiles(x86)%\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32.bat"
 color
 
@@ -37,12 +47,24 @@ popd
 
 
 :OK
+<<<<<<< HEAD
 echo JOB WELL DONE
+=======
+echo.
+echo JOB WELL DONE
+echo.
+>>>>>>> origin/master
 pause 
 exit /b
 
 :ERROR
 color 0C
+<<<<<<< HEAD
 echo OOPS...
+=======
+echo.
+echo WTF?!
+echo.
+>>>>>>> origin/master
 pause
 exit /b
