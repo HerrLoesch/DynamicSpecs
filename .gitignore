@@ -197,3 +197,5 @@ FakesAssemblies/
 *.ncrunchsolution
 *.ncrunchproject
 _nuget_output/
+packages/
+
