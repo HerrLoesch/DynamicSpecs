@@ -8,21 +8,21 @@ namespace DynamicSpecs.MSTest
 
     public class Specifies<T> : WorkflowSpecification<T>
     {
-        private readonly TypeRegistration typeRegistration;
+        private readonly TypeRegistry typeRegistry;
         
         protected Specifies()
         {
-            this.typeRegistration = new TypeRegistration();
+            this.typeRegistry = new TypeRegistry();
         }
 
-        protected override IRegisterTypes GetTypeRegistration()
+        protected override IRegisterTypes GetTypeRegistry()
         {
-            return this.typeRegistration;
+            return this.typeRegistry;
         }
 
         protected override IResolveTypes GetTypeResolver()
         {
-            return this.typeRegistration;
+            return this.typeRegistry;
         }
 
         [TestInitialize]

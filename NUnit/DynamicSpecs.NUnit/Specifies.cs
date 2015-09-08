@@ -11,21 +11,21 @@
         /// <summary>
         /// Gets or sets a container holding all registered types and can resolve mocks if no registration was made for a type.
         /// </summary>
-        public TypeRegistration Registration { get; private set; }
+        public TypeRegistry Registry { get; private set; }
 
         public Specifies()
         {
-            this.Registration = new TypeRegistration();
+            this.Registry = new TypeRegistry();
         }
 
-        protected override IRegisterTypes GetTypeRegistration()
+        protected override IRegisterTypes GetTypeRegistry()
         {
-            return this.Registration;
+            return this.Registry;
         }
 
         protected override IResolveTypes GetTypeResolver()
         {
-            return this.Registration;
+            return this.Registry;
         }
 
         [TestFixtureSetUp]

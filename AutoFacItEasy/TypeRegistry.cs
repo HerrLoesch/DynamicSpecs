@@ -6,14 +6,14 @@ namespace DynamicSpecs.AutoFacItEasy
     /// <summary>
     /// Container holding all registered types.
     /// </summary>
-    public class TypeRegistration : IRegisterTypes, IResolveTypes
+    public class TypeRegistry : IRegisterTypes, IResolveTypes
     {
         private readonly AutoFake fakeContainer;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TypeRegistration"/> class.
+        /// Initializes a new instance of the <see cref="TypeRegistry"/> class.
         /// </summary>
-        public TypeRegistration()
+        public TypeRegistry()
         {
             this.fakeContainer = new AutoFake();
         }

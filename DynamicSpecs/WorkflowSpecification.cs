@@ -22,9 +22,9 @@
         public T SUT { get; protected set; }
 
         /// <summary>
-        /// Gets or sets the instance of the central type registration.
+        /// Gets or sets the instance of the central type registry.
         /// </summary>
-        private IRegisterTypes TypeRegistration { get; set; }
+        private IRegisterTypes TypeRegistry { get; set; }
 
         /// <summary>
         /// Gets or sets the instance of the central type resolver.
@@ -95,11 +95,11 @@
         {
             this.DetermineTypesOfThisSpec();
             
-            this.TypeRegistration = this.GetTypeRegistration();
+            this.TypeRegistry = this.GetTypeRegistry();
 
             this.ExecuteExtensions(WorkflowPosition.TypeRegistration);
 
-            this.RegisterTypes(this.TypeRegistration);
+            this.RegisterTypes(this.TypeRegistry);
 
             this.TypeResolver = this.GetTypeResolver();
 
@@ -122,7 +122,7 @@
         /// <returns>
         /// The <see cref="IRegisterTypes"/>.
         /// </returns>
-        protected abstract IRegisterTypes GetTypeRegistration();
+        protected abstract IRegisterTypes GetTypeRegistry();
 
         /// <summary>
         /// Gets the reference to the central instance with which types can be resolved as instances.
