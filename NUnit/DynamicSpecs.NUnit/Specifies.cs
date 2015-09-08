@@ -31,7 +31,13 @@
         [TestFixtureSetUp]
         public override void Setup()
         {
-            base.Run();
+            this.Run();
+        }
+
+        [TearDown]
+        public void AfterSpecs()
+        {
+            this.OnSpecExecutionCompleted();
         }
     }
 }

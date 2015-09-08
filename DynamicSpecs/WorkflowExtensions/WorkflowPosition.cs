@@ -28,6 +28,16 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         /// <summary>
         /// After the given but before the when phase.
         /// </summary>
-        When
+        When,
+
+        /// <summary>
+        /// Last step during the run of a particular spec.
+        /// </summary>
+        SpecExecutionCompleted,
+
+        /// <summary>
+        /// Last step after all specs.
+        /// </summary>
+        RunCompleted
     }
 }

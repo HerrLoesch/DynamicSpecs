@@ -152,6 +152,14 @@
         }
 
         /// <summary>
+        /// Contains code which hase to be executed after each spec.
+        /// </summary>
+        protected void OnSpecExecutionCompleted()
+        {
+            this.ExecuteExtensions(WorkflowPosition.SpecExecutionCompleted);
+        }
+
+        /// <summary>
         /// Executes all extensions for <c>this</c> instance based on a workflow step. 
         /// </summary>
         /// <param name="targetSteps">The steps for which extensions must be registered to be executed.</param>

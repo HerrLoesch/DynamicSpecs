@@ -17,9 +17,9 @@
 
             Extend<IRequestDataBeforeTypeRegistration>().With<DataBeforeTypeRegistration>().Before(WorkflowPosition.TypeRegistration);
             Extend<IRequestDataBeforeSUTCreation>().With<DataBeforeSUTCreation>().Before(WorkflowPosition.SUTCreation);
-
             Extend<IRequestDataBeforeGiven>().With<DataBeforeGiven>().Before(WorkflowPosition.Given);
             Extend<IRequestDataBeforeWhen>().With<DataBeforeWhen>().Before(WorkflowPosition.When);
+            Extend<IRequestDataBeforeSpecExecutionCompleted>().With<DataBeforeSpecExecutionCompleted>().Before(WorkflowPosition.SpecExecutionCompleted);
         }
     }
 }
