@@ -7,9 +7,9 @@ Dynamic Specs is an easy to use specfication framework. It extends NUnit, MSTest
 
 
 ##Why another BDD framework?
-There are many great BDD frameworks like [MSpec](https://github.com/machine/machine.specifications) or [NSpec](http://nspec.org/) out there. but unfortunatly these often need an own runner or additional tooling which why they are not easy to integrate in every bodys tool chain. This happens espacialy in cases where 3rd party tools during builds are avoided and people just want to run every thing based on Microsoft software.
+There are many great BDD frameworks like [MSpec](https://github.com/machine/machine.specifications) or [NSpec](http://nspec.org/) out there. Unfortunatly, they need an own runner or additional tooling, which why they are not easy to integrate in every bodys tool chain. This happens espacialy in cases where 3rd party tools during builds have to be avoided and people just want to run every thing based on Microsoft software.
 
-The Idea behind Dynamic Specs is it, to use the infrastructure of widely known frameworks like MS Test and NUnit and extend these frameworks with features to run BDD like tests. The advantage of this is, that Dynamic Specs can be used where ever the host system is used and the user can not only write unit tests in an easy way but also integration and system test.
+The Idea behind Dynamic Specs is it, to use the infrastructure of widely known frameworks like MS Test and NUnit and extend these frameworks with features to run BDD like tests. The advantage of this is, that Dynamic Specs can be used where ever the host system is used and you can not only write unit tests but also integration and system test in an easy way.
 
 ##Where can I get it?
 That depends on what you need, because DynamicSpecs consists of four parts:
