@@ -6,6 +6,7 @@ namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    [TestClass]
     public class When_data_is_requested_before_SUT_creation : Specifies<object>, IRequestDataBeforeSUTCreation
     {
         public int Data { get; set; }

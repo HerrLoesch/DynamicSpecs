@@ -84,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkflowExtensions\DataProvider.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\Configuration.cs" />
+    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeSpecExecutionCompleted.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeGiven.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeSUTCreation.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeTypeRegistration.cs" />
@@ -94,6 +95,8 @@
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeTypeRegistration.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeWhen.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataByDefault.cs" />
+    <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeSpecExecutionCompleted.cs" />
+    <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_after_one_spec.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_before_given_phase.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_before_SUT_creation.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_before_when_phase.cs" />

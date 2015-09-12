@@ -10,12 +10,13 @@
     {
         public int Data { get; set; }
 
+        // we need to have to test methods which are synchronized because we are unable to predict the execution order of them.
         private static bool finishedOneSpec = false;
 
         private static object lockObject = new object();
 
         [Test]
-        public void ThenDataMustBeAvailableAfterASpecWasFinished()
+        public void Then_data_must_be_available_after_a_spec_was_finished()
         {
             lock (lockObject)
             {
@@ -29,7 +30,7 @@
         }
 
         [Test]
-        public void ThenDataMustBeAvailableAfterOneSpecWasFinished()
+        public void Then_data_must_be_available_after_one_spec_was_finished()
         {
             lock (lockObject)
             {
