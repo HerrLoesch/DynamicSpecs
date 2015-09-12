@@ -34,7 +34,7 @@
             this.Run();
         }
 
-        [TearDown]
+        [TestFixtureTearDown]
         public void AfterSpecs()
         {
             this.OnSpecExecutionCompleted();

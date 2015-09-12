@@ -9,10 +9,13 @@ namespace DynamicSpecs.MSTest
     public class Specifies<T> : WorkflowSpecification<T>
     {
         private readonly TypeRegistry typeRegistry;
-        
+
+        private static Specifies<T> instanceForCleanUp;
+
         protected Specifies()
         {
             this.typeRegistry = new TypeRegistry();
+            instanceForCleanUp = this;
         }
 
         protected override IRegisterTypes GetTypeRegistry()
@@ -31,10 +34,10 @@ namespace DynamicSpecs.MSTest
             base.Run();
         }
 
-        [TestCleanup]
-        public void CleanUp()
+        [ClassCleanup]
+        public static void CleanUp()
         {
-            this.OnSpecExecutionCompleted();
+            instanceForCleanUp.OnSpecExecutionCompleted();
         }
     }
 }
