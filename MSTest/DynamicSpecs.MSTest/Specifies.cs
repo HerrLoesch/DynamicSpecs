@@ -34,6 +34,12 @@ namespace DynamicSpecs.MSTest
             base.Run();
         }
 
+        [TestCleanup]
+        public void StepwiseCleanup()
+        {
+            this.OnThenIsCompleted();
+        }
+
         [ClassCleanup]
         public static void CleanUp()
         {
