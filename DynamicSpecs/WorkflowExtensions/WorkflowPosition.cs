@@ -11,9 +11,9 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         Default,
 
         /// <summary>
-        /// After the type registration is created but before the first type is registered.
+        /// After the type registry is created but before the first type is registered.
         /// </summary>
-        TypeRegistration, 
+        TypeRegistration,
 
         /// <summary>
         /// After alls types are registered but before the SUT is created.
@@ -31,13 +31,13 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         When,
 
         /// <summary>
-        /// Last step during the run of a particular spec.
+        /// Executed after at the end of one then Step.
         /// </summary>
-        SpecExecutionCompleted,
+        Then,
 
         /// <summary>
-        /// Last step after all specs.
+        /// Last step during the run of a particular spec.
         /// </summary>
-        RunCompleted
+        SpecExecutionCompleted
     }
 }

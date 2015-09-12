@@ -152,11 +152,19 @@
         }
 
         /// <summary>
-        /// Contains code which hase to be executed after each spec.
+        /// Contains code which hase to be executed after a spec.
         /// </summary>
         protected void OnSpecExecutionCompleted()
         {
             this.ExecuteExtensions(WorkflowPosition.SpecExecutionCompleted);
+        }
+
+        /// <summary>
+        /// Contains code which has to be executed after each then phase.
+        /// </summary>
+        protected void OnThenIsCompleted()
+        {
+            this.ExecuteExtensions(WorkflowPosition.Then);
         }
 
         /// <summary>

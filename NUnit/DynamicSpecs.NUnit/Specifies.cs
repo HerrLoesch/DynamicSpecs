@@ -39,5 +39,11 @@
         {
             this.OnSpecExecutionCompleted();
         }
+
+        [TearDown]
+        public void AfterThenStep()
+        {
+            this.OnThenIsCompleted();
+        }
     }
 }

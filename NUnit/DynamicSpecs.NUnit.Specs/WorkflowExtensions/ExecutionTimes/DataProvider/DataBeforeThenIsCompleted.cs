@@ -4,9 +4,9 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.DataProvide
     using DynamicSpecs.Core.WorkflowExtensions;
     using DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.Interfaces;
 
-    public class DataBeforeSpecExecutionCompleted : IExtend<IRequestDataBeforeSpecExecutionCompleted>
+    public class DataBeforeThenIsCompleted : IExtend<IRequestDataBeforeThenIsCompleted>
     {
-        public void Extend(IRequestDataBeforeSpecExecutionCompleted target)
+        public void Extend(IRequestDataBeforeThenIsCompleted target)
         {
             target.Data = WorkflowExtensions.DataProvider.Data;
         }

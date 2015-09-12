@@ -6,7 +6,7 @@
 
     using global::NUnit.Framework;
 
-    public class When_data_is_requested_after_one_spec : Specifies<object>, IRequestDataBeforeSpecExecutionCompleted
+    public class When_data_is_requested_after_one_spec : Specifies<object>, IRequestDataBeforeThenIsCompleted
     {
         public int Data { get; set; }
 
