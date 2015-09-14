@@ -43,6 +43,6 @@
         /// </summary>
         /// <typeparam name="TInstance">Type of the instance which shall be resolved.</typeparam>
         /// <returns>Instance of the given type.</returns>
-        TInstance GetInstance<TInstance>();
+        TInstance GetInstance<TInstance>() where TInstance : class;
     }
 }

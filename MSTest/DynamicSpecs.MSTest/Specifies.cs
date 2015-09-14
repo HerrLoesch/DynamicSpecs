@@ -6,7 +6,7 @@ namespace DynamicSpecs.MSTest
     using DynamicSpecs.Core;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    public class Specifies<T> : WorkflowSpecification<T>
+    public class Specifies<T> : WorkflowSpecification<T> where T : class
     {
         private readonly TypeRegistry typeRegistry;
 

@@ -12,7 +12,7 @@
     /// <typeparam name="T">
     /// Type of the system under test.
     /// </typeparam>
-    public abstract class WorkflowSpecification<T> : ISpecify<T>
+    public abstract class WorkflowSpecification<T> : ISpecify<T> where T : class
     {
         private Type[] specificationsBaseTypes;
 
@@ -64,7 +64,7 @@
         /// </summary>
         /// <typeparam name="TInstance">Type of the instance which shall be resolved.</typeparam>
         /// <returns>Instance of the given type.</returns>
-        public TInstance GetInstance<TInstance>()
+        public TInstance GetInstance<TInstance>() where TInstance : class
         {
             return this.TypeResolver.Resolve<TInstance>();
         }

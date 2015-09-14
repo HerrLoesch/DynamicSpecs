@@ -44,7 +44,7 @@ namespace DynamicSpecs.AutoFacItEasy
         /// </summary>
         /// <typeparam name="T">Type to resolve.</typeparam>
         /// <returns>Instance of type T</returns>
-        public T Resolve<T>()
+        public T Resolve<T>() where T : class
         {
             return this.fakeContainer.Resolve<T>();
         }

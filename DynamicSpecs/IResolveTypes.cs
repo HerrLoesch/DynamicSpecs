@@ -10,6 +10,6 @@
         /// </summary>
         /// <typeparam name="T">Type to resolve.</typeparam>
         /// <returns>Instance of type T</returns>
-        T Resolve<T>();
+        T Resolve<T>() where T : class;
     }
 }
