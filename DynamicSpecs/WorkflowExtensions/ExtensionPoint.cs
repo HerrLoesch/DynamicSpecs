@@ -18,6 +18,7 @@
         public ExtensionPoint()
         {
             this.TargetType = typeof(TTargetType);
+            this.WorkflowPosition = WorkflowPosition.Default;
         }
         
         /// <summary>

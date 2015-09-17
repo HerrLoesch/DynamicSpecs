@@ -107,8 +107,8 @@
 
             this.SUT = this.CreateSut();
 
-            this.ExecuteExtensions(WorkflowPosition.Given, WorkflowPosition.Default);
-
+            this.ExecuteExtensions(WorkflowPosition.Default, WorkflowPosition.Given);
+            
             this.Given();
 
             this.ExecuteExtensions(WorkflowPosition.When);
@@ -170,7 +170,7 @@
         /// <summary>
         /// Executes all extensions for <c>this</c> instance based on a workflow step. 
         /// </summary>
-        /// <param name="targetSteps">The steps for which extensions must be registered to be executed.</param>
+        /// <param name="targetSteps">The steps for which an extension must be registered to be executed.</param>
         private void ExecuteExtensions(params WorkflowPosition[] targetSteps)
         {
             foreach (var baseType in this.specificationsBaseTypes)
@@ -178,7 +178,8 @@
                 List<IExtend> extensions;
                 if (Extensions.TryGetValue(baseType, out extensions))
                 {
-                    foreach (var extension in extensions.Where(x => targetSteps.Contains(x.WorkflowPosition)).ToList())
+                    var extensionsForStep = extensions.Where(x => targetSteps.Any(y => x.WorkflowPosition.HasFlag(y))).ToList();
+                    foreach (var extension in extensionsForStep)
                     {
                         extension.Extend(this);
                     }

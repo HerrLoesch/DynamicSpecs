@@ -20,6 +20,8 @@
             Extend<IRequestDataBeforeGiven>().With<DataBeforeGiven>().Before(WorkflowPosition.Given);
             Extend<IRequestDataBeforeWhen>().With<DataBeforeWhen>().Before(WorkflowPosition.When);
             Extend<IRequestDataBeforeThenIsCompleted>().With<DataBeforeThenIsCompleted>().Before(WorkflowPosition.Then);
+
+            Extend<IRequestDataMultipleTimes>().With<MultipleDataProvider>().Before(WorkflowPosition.Given | WorkflowPosition.When);
         }
     }
 }

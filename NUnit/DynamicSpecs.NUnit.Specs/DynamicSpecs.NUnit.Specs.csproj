@@ -96,6 +96,7 @@
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeTypeRegistration.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeWhen.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataByDefault.cs" />
+    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\MultipleDataProvider.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeGiven.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeSUTCreation.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeTypeRegistration.cs" />
@@ -103,6 +104,8 @@
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeWhen.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataByDefault.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeThenIsCompleted.cs" />
+    <Compile Include="WorkflowExtensions\ExecutionTimes\IRequestDataMultipleTimes.cs" />
+    <Compile Include="WorkflowExtensions\ExecutionTimes\When_an_extension_is_used_for_different_workflow_steps.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_after_one_spec.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_before_given_phase.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_before_SUT_creation.cs" />
