@@ -11,7 +11,7 @@
     <iconUrl>https://raw.githubusercontent.com/HerrLoesch/DynamicSpecs/master/Ressources/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright 2015 Hendrik Loesch</copyright>
     <tags>DynamicSpecs Specification AutoFac BDD TDD</tags>
     <dependencies>

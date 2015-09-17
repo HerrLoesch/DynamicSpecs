@@ -11,7 +11,7 @@
     <iconUrl>https://raw.githubusercontent.com/HerrLoesch/DynamicSpecs/master/Ressources/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added additional extension points during execution.</releaseNotes>
+    <releaseNotes>Extensions can now be registered for multiple steps and they can determin in which step the are executed.</releaseNotes>
     <copyright>Copyright 2015 Hendrik Loesch</copyright>
     <tags>DynamicSpecs Specification Test MSTest BDD TDD</tags>
     <dependencies>
