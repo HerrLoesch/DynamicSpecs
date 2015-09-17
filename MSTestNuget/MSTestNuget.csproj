@@ -45,16 +45,16 @@
       <HintPath>..\packages\Autofac.Extras.FakeItEasy.3.0.3\lib\net40\Autofac.Extras.FakeItEasy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamicSpecs.AutoFacItEasy, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamicSpecs.AutoFacItEasy.1.0.9.0\lib\net40\DynamicSpecs.AutoFacItEasy.dll</HintPath>
+    <Reference Include="DynamicSpecs.AutoFacItEasy, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicSpecs.AutoFacItEasy.1.1.0.0\lib\net40\DynamicSpecs.AutoFacItEasy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamicSpecs.Core, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamicSpecs.Core.1.0.9.0\lib\portable-net40+win+wpa81\DynamicSpecs.Core.dll</HintPath>
+    <Reference Include="DynamicSpecs.Core, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicSpecs.Core.1.1.0.0\lib\portable-net40+win+wpa81\DynamicSpecs.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamicSpecs.MSTest, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamicSpecs.MSTest.1.0.9.0\lib\net40\DynamicSpecs.MSTest.dll</HintPath>
+    <Reference Include="DynamicSpecs.MSTest, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicSpecs.MSTest.1.1.0.0\lib\net40\DynamicSpecs.MSTest.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FakeItEasy, Version=1.18.0.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
