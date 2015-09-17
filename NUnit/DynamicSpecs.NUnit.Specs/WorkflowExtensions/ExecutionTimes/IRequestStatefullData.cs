@@ -1,6 +1,6 @@
 ﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
 {
-    public interface IRequestDataMultipleTimes : IRequestData
+    public interface IRequestStatefullData : IRequestData
     {
     }
 }

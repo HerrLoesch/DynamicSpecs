@@ -41,16 +41,17 @@
         /// The instance of the actual extension.
         /// </value>
         private IExtend<TTargetType> Extension { get; set; }
-        
+
         /// <summary>
         /// Executes the code which actually extends the specified target.
         /// </summary>
         /// <param name="target">
-        /// The target to extend.
+        ///     The target to extend.
         /// </param>
-        public void Extend(object target)
+        /// <param name="workflowPosition"></param>
+        public void Extend(object target, WorkflowPosition workflowPosition)
         {
-            this.Extend(target as TTargetType);
+            this.Extend(target as TTargetType, workflowPosition);
         }
 
         /// <summary>
@@ -105,16 +106,15 @@
         {
             this.WorkflowPosition = targetStep;
         }
-        
+
         /// <summary>
         /// Executes the encapsulated extension for the given target instance.
         /// </summary>
-        /// <param name="target">
-        /// The target instance.
-        /// </param>
-        private void Extend(TTargetType target)
+        /// <param name="target">The target instance.</param>
+        /// <param name="workflowPosition">The workflow position.</param>
+        private void Extend(TTargetType target, WorkflowPosition workflowPosition)
         {
-            this.Extension.Extend(target);
+            this.Extension.Extend(target, workflowPosition);
         }
     }
 }

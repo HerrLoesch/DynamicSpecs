@@ -21,7 +21,8 @@
             Extend<IRequestDataBeforeWhen>().With<DataBeforeWhen>().Before(WorkflowPosition.When);
             Extend<IRequestDataBeforeThenIsCompleted>().With<DataBeforeThenIsCompleted>().Before(WorkflowPosition.Then);
 
-            Extend<IRequestDataMultipleTimes>().With<MultipleDataProvider>().Before(WorkflowPosition.Given | WorkflowPosition.When);
+            Extend<IRequestStatefullData>().With<StatefullMultipleDataProvider>().Before(WorkflowPosition.Given | WorkflowPosition.When);
+            Extend<IRequestStatelessData>().With<StatelessMultipleDataProvider>().Before(WorkflowPosition.Given | WorkflowPosition.When);
         }
     }
 }

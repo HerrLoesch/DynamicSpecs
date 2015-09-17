@@ -7,7 +7,7 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.DataProvide
 
     public class DataBeforeSUTCreation : IExtend<IRequestDataBeforeSUTCreation>
     {
-        public void Extend(IRequestDataBeforeSUTCreation target)
+        public void Extend(IRequestDataBeforeSUTCreation target, WorkflowPosition workflowPosition)
         {
             target.Data = DataProvider.Data;
         }

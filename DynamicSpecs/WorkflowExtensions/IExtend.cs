@@ -6,7 +6,12 @@ namespace DynamicSpecs.Core.WorkflowExtensions
     /// <typeparam name="TToExtend">Type to extend</typeparam>
     public interface IExtend<TToExtend>
     {
-        void Extend(TToExtend target);
+        /// <summary>
+        /// Extends the specified target.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        /// <param name="currentPosition">The current position.</param>
+        void Extend(TToExtend target, WorkflowPosition currentPosition);
     }
 
     /// <summary>
@@ -23,6 +28,7 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         /// Executes the code which actually extends the specified target.
         /// </summary>
         /// <param name="target">The target to extend.</param>
-        void Extend(object target);
+        /// <param name="workflowPosition">The workflow position.</param>
+        void Extend(object target, WorkflowPosition workflowPosition);
     }
 }

@@ -2,11 +2,11 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.DataProvide
 {
     using DynamicSpecs.Core.WorkflowExtensions;
 
-    public class MultipleDataProvider : IExtend<IRequestDataMultipleTimes>
+    public class StatefullMultipleDataProvider : IExtend<IRequestStatefullData>
     {
         private int data = 1;
 
-        public void Extend(IRequestDataMultipleTimes target)
+        public void Extend(IRequestStatefullData target, WorkflowPosition workflowPosition)
         {
             target.Data = this.data;
             this.data++;

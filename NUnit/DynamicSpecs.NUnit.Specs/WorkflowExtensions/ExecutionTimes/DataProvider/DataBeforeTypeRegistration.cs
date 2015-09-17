@@ -7,7 +7,7 @@
 
     public class DataBeforeTypeRegistration : IExtend<IRequestDataBeforeTypeRegistration>
     {
-        public void Extend(IRequestDataBeforeTypeRegistration target)
+        public void Extend(IRequestDataBeforeTypeRegistration target, WorkflowPosition workflowPosition)
         {
             target.Data = DataProvider.Data;
         }

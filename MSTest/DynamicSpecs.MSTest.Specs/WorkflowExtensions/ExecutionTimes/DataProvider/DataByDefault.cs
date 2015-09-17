@@ -5,7 +5,7 @@
 
     public class DataByDefault : IExtend<IRequestDataByDefault>
     {
-        public void Extend(IRequestDataByDefault target)
+        public void Extend(IRequestDataByDefault target, WorkflowPosition workflowPosition)
         {
             target.Data = WorkflowExtensions.DataProvider.Data;
         }

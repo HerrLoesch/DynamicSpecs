@@ -10,7 +10,7 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
 
     using global::NUnit.Framework;
 
-    public class When_an_extension_is_used_for_different_workflow_steps : Specifies<object>, IRequestDataMultipleTimes
+    public class When_an_extension_is_used_for_different_workflow_steps : Specifies<object>, IRequestStatefullData
     {
         public override void Given()
         {

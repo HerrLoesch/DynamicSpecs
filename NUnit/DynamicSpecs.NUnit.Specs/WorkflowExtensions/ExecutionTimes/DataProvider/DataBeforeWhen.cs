@@ -7,7 +7,7 @@
 
     public class DataBeforeWhen : IExtend<IRequestDataBeforeWhen>
     {
-        public void Extend(IRequestDataBeforeWhen target)
+        public void Extend(IRequestDataBeforeWhen target, WorkflowPosition workflowPosition)
         {
             target.Data = DataProvider.Data;
         }

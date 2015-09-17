@@ -181,7 +181,13 @@
                     var extensionsForStep = extensions.Where(x => targetSteps.Any(y => x.WorkflowPosition.HasFlag(y))).ToList();
                     foreach (var extension in extensionsForStep)
                     {
-                        extension.Extend(this);
+                        foreach (var targetStep in targetSteps)
+                        {
+                            if (targetStep != WorkflowPosition.Default)
+                            {
+                                extension.Extend(this, targetStep);
+                            }
+                        }
                     }
                 }
             }

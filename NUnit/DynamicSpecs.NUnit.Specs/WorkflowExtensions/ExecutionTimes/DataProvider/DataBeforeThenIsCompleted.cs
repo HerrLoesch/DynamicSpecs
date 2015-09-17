@@ -6,7 +6,7 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.DataProvide
 
     public class DataBeforeThenIsCompleted : IExtend<IRequestDataBeforeThenIsCompleted>
     {
-        public void Extend(IRequestDataBeforeThenIsCompleted target)
+        public void Extend(IRequestDataBeforeThenIsCompleted target, WorkflowPosition workflowPosition)
         {
             target.Data = WorkflowExtensions.DataProvider.Data;
         }

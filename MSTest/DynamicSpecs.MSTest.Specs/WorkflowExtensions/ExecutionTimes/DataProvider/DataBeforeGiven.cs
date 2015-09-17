@@ -7,7 +7,7 @@
 
     public class DataBeforeGiven : IExtend<IRequestDataBeforeGiven>
     {
-        public void Extend(IRequestDataBeforeGiven target)
+        public void Extend(IRequestDataBeforeGiven target, WorkflowPosition workflowPosition)
         {
             target.Data = DataProvider.Data;
         }
