@@ -1,4 +1,0 @@
-language: csharp
-solution: DynamicSpecs.sln
-install:
-  - nuget restore DynamicSpecs.sln
