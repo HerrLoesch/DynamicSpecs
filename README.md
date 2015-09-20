@@ -3,7 +3,13 @@ Dynamic Specs is an easy to use specfication framework. It extends NUnit, MSTest
 
 ##Table of contents
 - [Why another BDD framework?](#why-another-bdd-framework?)
-- [Where can I get it?](#Where-can-I-get-it)
+- [How to use it with NUnit?](#How-to-use-it-with-NUnit?)
+-- [Basic Structure](#Basic-Structure)
+-- [Reduce boiler plate code](#Reduce-boiler-plate-code)
+-- [Integration tests without boiler plate code](#Integration-tests-without-boiler-plate-code)
+- [How to use it with MS Test?](#How-to-use-it-with-MS-Test?)
+- [How to use it with an other framework?](#How-to-use-it-with-an-other-framework?)
+
 
 
 ##Why another BDD framework?
@@ -53,7 +59,7 @@ After all this we come to the real action, because you now have to check the out
         public IEnumerable<Person> AvailablePersons { get; set; }
     }
 
-###Reduce biolerplate code
+###Reduce boiler plate code
 The more specs you create, the more code will double. You can reduce this with support classes encapsulating you preconditions.
 
     public class WhenPersonSelectionIsShown : Specifies<PersonSelectionViewModel>
@@ -93,7 +99,7 @@ These classes are either be instanciated by you and used as a parameter for the 
         }
     }
 
-###Integration tests without boilerplate code
+###Integration tests without boiler plate code
 Dynamic Specs used internally an extendable workflow engine. The workflow has typically seven differnt steps:
 
  1. Register all needed types
