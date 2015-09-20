@@ -53,7 +53,7 @@ After all this we come to the real action, because you now have to check the out
         public IEnumerable<Person> AvailablePersons { get; set; }
     }
 
-###Reduce bioler plate code
+###Reduce biolerplate code
 The more specs you create, the more code will double. You can reduce this with support classes encapsulating you preconditions.
 
     public class WhenPersonSelectionIsShown : Specifies<PersonSelectionViewModel>
