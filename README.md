@@ -7,7 +7,7 @@ Dynamic Specs is an easy to use specfication framework. It extends NUnit, MSTest
 	- [Basic Structure](#basic-structure)
 	- [Reduce boiler plate code](#reduce-boiler-plate-code)
 	- [Integration tests without boiler plate code](#integration-tests-without-boiler-plate-code)
-- [How to use it with MS Test?](#wow-to-use-it-with-ms-test)
+- [How to use it with MS Test?](#how-to-use-it-with-ms-test)
 - [How to use it with an other framework?](#how-to-use-it-with-an-other-framework)
 
 
