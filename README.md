@@ -93,7 +93,7 @@ These classes are either be instanciated by you and used as a parameter for the 
         }
     }
 
-###Integration tests without boiler plate code
+###Integration tests without boilerplate code
 Dynamic Specs used internally an extendable workflow engine. The workflow has typically seven differnt steps:
 
  1. Register all needed types
