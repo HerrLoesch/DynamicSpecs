@@ -2,7 +2,7 @@
 Dynamic Specs is an easy to use specfication framework. It extends NUnit, MSTest or other similiar testing frameworks with a BDD style workflow.
 
 ##Table of contents
-- [Why another BDD framework?](#why-another-bdd-framework?)
+- [Why another BDD framework?](#why-another-bdd-framework)
 - [How to use it with NUnit?](#how-to-use-it-with-nunit?)
 	- [Basic Structure](#basic-structure)
 	- [Reduce boiler plate code](#reduce-boiler-plate-code)
