@@ -93,7 +93,7 @@ These classes are either be instanciated by you and used as a parameter for the 
         {
             this.AvailablePersons = new List<Person>(){new Person()};
 
-            var repository = this.GetInstance<IRepository>();
+            var repository = specification.GetInstance<IRepository>();
 
             A.CallTo(() => repository.GetPersons()).Returns(this.AvailablePersons);
         }
