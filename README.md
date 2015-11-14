@@ -34,6 +34,7 @@ Such a configuration should be done during the *Given* phase of a spec because t
 
 After all this we come to the real action, because you now have to check the outcome of the when phase. Therefor you need to create a method with the *Test* attribute from NUnit and the name describing the expected result. The *Test* attribute is necessary to trigger the execution by the test runner.
 
+```C#
     public class WhenPersonSelectionIsShown : Specifies<PersonSelectionViewModel>
     {
         public override void Given()
@@ -58,10 +59,12 @@ After all this we come to the real action, because you now have to check the out
 
         public IEnumerable<Person> AvailablePersons { get; set; }
     }
+```
 
 ###Reduce boiler plate code
 The more specs you create, the more code will double. You can reduce this with support classes encapsulating you preconditions.
 
+```C#
     public class WhenPersonSelectionIsShown : Specifies<PersonSelectionViewModel>
     {
         public override void Given()
@@ -82,9 +85,11 @@ The more specs you create, the more code will double. You can reduce this with s
 
         public IEnumerable<Person> AvailablePersons { get; set; }
     }
+```
 
 These classes are either be instanciated by you and used as a parameter for the *Given* method or you just use their type as parameter and the spec will create an instance on its own, therfor a support class must implement the *ISupport* interface.
 
+```C#
     public class WithPersons : ISupport
     {
         public IEnumerable<Person> AvailablePersons { get; private set; }
@@ -98,6 +103,7 @@ These classes are either be instanciated by you and used as a parameter for the 
             A.CallTo(() => repository.GetPersons()).Returns(this.AvailablePersons);
         }
     }
+```
 
 ###Integration tests without boiler plate code
 Dynamic Specs used internally an extendable workflow engine. The workflow has typically seven differnt steps:
@@ -112,6 +118,7 @@ Dynamic Specs used internally an extendable workflow engine. The workflow has ty
 
 You can extend each of these steps by creating a configuration class. This class must be as near as possible to the root namespace of your test suite so it is executed as early as possible during a test run ([see also](http://nunit.org/index.php?p=setupFixture&r=2.6.3)). It also gets the *SetUpFixture* attribute, derives from *Extensions* and has a public method with the *SetUp* attribute. Within this method you can extend each spec with a particular interface by using extension classes. If you want that an extensions is executed for each spec than just define an extension point for ISpecify. You also don't need to define a particular workflow position, your extension will then be executed during the given phase.
 
+```C#
     [SetUpFixture]
     public class Configuration : Extensions
     {
@@ -123,11 +130,13 @@ You can extend each of these steps by creating a configuration class. This class
             .Before(WorkflowPosition.Given | WorkflowPosition.Then);
         }
     }
+```
 
 Such an extension can be quite helpfull if you want to create specs with access to a data base. When using Entity Framework, your specs can simply use the same Context class as your production code. This might not be clean testing, because you use something in your tests as well as in the production code, but it can shorten the time for maintenance extremely.
 
 In this case you would create a database provider as follows. This class has to implement the *IExtend* interface for a particular other interface. Within its *Extend* method you can decisde if you need to create a transaction scope (from *System.Transaction*) or if you have to clean up the acquire ressources. 
 
+```C#
     public class DatabaseProvider : IExtend<INeedDataBaseContext>
     {
         private TransactionScope transactionScope;
@@ -170,9 +179,11 @@ In this case you would create a database provider as follows. This class has to 
         
         public PersonContext Context { get; set; }
     }
+```
 
 The great thing about these extensions is, that you can save mutch time when writiting specifications because you just need to implement the configured interface and every thing else will be done automatically. 
 
+```C#
     public class WhenPersonSelectionIsShownWithDataBase : Specifies<PersonSelectionViewModel>, INeedDataBaseContext
     {
         public override void Given()
@@ -196,9 +207,11 @@ The great thing about these extensions is, that you can save mutch time when wri
 
         public PersonContext Context { get; set; }
     }
+```
 
 In combination with support classes, you get tests which focus just on the things they are testing.
 
+```C#
     public class WithPersonsInDataBase : ISupport
     {
         public IEnumerable<Person> AvailablePersons { get; set; }
@@ -218,6 +231,7 @@ In combination with support classes, you get tests which focus just on the thing
             context.SaveChanges();
         }
     }
+```
 
 ##How to use it with MS Test?
 Todo...
