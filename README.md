@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/HerrLoesch/DynamicSpecs.png?label=ready&title=Ready)](https://waffle.io/HerrLoesch/DynamicSpecs)
 # DynamicSpecs
 Dynamic Specs is an easy to use specfication framework. It extends NUnit, MSTest or other similiar testing frameworks with a BDD style workflow.
 
