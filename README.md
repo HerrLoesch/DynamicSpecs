@@ -240,3 +240,7 @@ Todo...
 
 ##How to use it with an other framework?
 Todo...
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/HerrLoesch/dynamicspecs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
