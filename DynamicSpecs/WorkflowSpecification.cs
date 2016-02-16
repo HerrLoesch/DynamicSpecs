@@ -99,7 +99,7 @@
 
             this.ExecuteExtensions(WorkflowPosition.TypeRegistration);
 
-            this.RegisterTypes(this.TypeRegistry);
+            this.RegisterTypes();
 
             this.TypeResolver = this.GetTypeResolver();
 
@@ -131,6 +131,19 @@
         /// The <see cref="IResolveTypes"/>.
         /// </returns>
         protected abstract IResolveTypes GetTypeResolver();
+
+        private void RegisterTypes()
+        {
+            var typeHandlers = Extensions.DefaultTypeRegistrations.Where(x => this.specificationsBaseTypes.Any(x.IsApplicableFor));
+            var distinctTypeHandlers = typeHandlers.Distinct();
+
+            foreach (var distinctTypeHandler in distinctTypeHandlers)
+            {
+                distinctTypeHandler.Register(this.TypeRegistry);
+            }
+
+            this.RegisterTypes(this.TypeRegistry);
+        }
 
         /// <summary>
         /// Registers all types needed by the SUT at a central registration or container.
@@ -176,7 +189,7 @@
             foreach (var baseType in this.specificationsBaseTypes)
             {
                 List<IExtend> extensions;
-                if (Extensions.TryGetValue(baseType, out extensions))
+                if (Extensions.TryGetExtension(baseType, out extensions))
                 {
                     var extensionsForStep = extensions.Where(x => targetSteps.Any(y => x.WorkflowPosition.HasFlag(y))).ToList();
                     foreach (var extension in extensionsForStep)

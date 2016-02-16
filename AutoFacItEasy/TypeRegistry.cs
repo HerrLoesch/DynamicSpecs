@@ -1,5 +1,7 @@
 namespace DynamicSpecs.AutoFacItEasy
 {
+    using System;
+
     using Autofac.Extras.FakeItEasy;
     using DynamicSpecs.Core;
 

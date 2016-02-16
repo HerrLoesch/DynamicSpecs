@@ -1,5 +1,7 @@
 ﻿namespace DynamicSpecs.Core
 {
+    using System;
+
     /// <summary>
     /// Specifies the structures of a type registration.
     /// </summary>
@@ -23,5 +25,6 @@
         void Register<TSource, TTarget>()
             where TSource : class, TTarget
             where TTarget : class;
+        
     }
 }

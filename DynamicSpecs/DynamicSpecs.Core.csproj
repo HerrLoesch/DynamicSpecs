@@ -44,6 +44,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkflowExtensions\Extensions.cs" />
     <Compile Include="WorkflowExtensions\ExtensionPoint.cs" />
+    <Compile Include="WorkflowExtensions\IHandleTypes.cs" />
+    <Compile Include="WorkflowExtensions\TypeHandler.cs" />
     <Compile Include="WorkflowExtensions\WorkflowPosition.cs" />
     <Compile Include="WorkflowExtensions\IExtend.cs" />
     <Compile Include="WorkflowSpecification.cs">

@@ -90,6 +90,10 @@
     <Compile Include="ExampleClasses\DummyClass.cs" />
     <Compile Include="ExampleClasses\IAmAServiceDummy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\Configuration.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\DefaultImplemenation.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\IDefaultImplementation.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\IRequestDefaultImplementation.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeThenIsCompleted.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeGiven.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeSUTCreation.cs" />
@@ -122,6 +126,7 @@
     <Compile Include="WorkflowExtensions\IRequestData.cs" />
     <Compile Include="WorkflowExtensions\TypebasedRegistration\TypeBasedConfiguration.cs" />
     <Compile Include="WorkflowExtensions\TypebasedRegistration\WhenDataIsRequestedBasedOnATypeConfiguration.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\WhenATypeIsRegisteredAsDefaultImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
