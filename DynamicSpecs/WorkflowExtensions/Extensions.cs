@@ -73,7 +73,7 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         /// <typeparam name="TTarget">The type of the target.</typeparam>
         /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <returns></returns>
-        protected static IRegisterTypesFor Provide<TTarget, TSource>() 
+        protected static void Provide<TTarget, TSource>() 
             where TSource : class 
             where TTarget : class, TSource
         {
@@ -81,8 +81,6 @@ namespace DynamicSpecs.Core.WorkflowExtensions
             {
                 var typeHandler = new DefaultTypeHandler<TTarget, TSource>();
                 DefaultTypeRegistrations.Add(typeHandler);
-
-                return typeHandler;
             }
         }
     }

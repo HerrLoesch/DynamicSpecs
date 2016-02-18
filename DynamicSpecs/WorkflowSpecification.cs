@@ -134,15 +134,23 @@
 
         private void RegisterTypes()
         {
-            var typeHandlers = Extensions.DefaultTypeRegistrations.Where(x => this.specificationsBaseTypes.Any(x.IsApplicableFor));
-            var distinctTypeHandlers = typeHandlers.Distinct();
+            this.RegisterDefaultTypes();
 
-            foreach (var distinctTypeHandler in distinctTypeHandlers)
+            this.RegisterTypes(this.TypeRegistry);
+        }
+
+        private void RegisterDefaultTypes()
+        {
+            var typeAttributes = this.GetType().GetCustomAttributes(true);
+            var typeRequests =
+                typeAttributes.Where(x => x.GetType() == typeof(RequestTypeAttribute))
+                    .Select(y => ((RequestTypeAttribute)y).RequestedType);
+            var typesToRegister = Extensions.DefaultTypeRegistrations.Where(x => typeRequests.Any(x.IsApplicableFor));
+
+            foreach (var distinctTypeHandler in typesToRegister)
             {
                 distinctTypeHandler.Register(this.TypeRegistry);
             }
-
-            this.RegisterTypes(this.TypeRegistry);
         }
 
         /// <summary>

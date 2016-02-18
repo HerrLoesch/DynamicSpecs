@@ -10,7 +10,7 @@
         [SetUp]
         public void RegisterExtensions()
         {
-            Provide<DefaultImplemenation, IDefaultImplementation>().For<IRequestDefaultImplementation>();
+            Provide<DefaultImplemenation, IDefaultImplementation>();
         }
     }
 }

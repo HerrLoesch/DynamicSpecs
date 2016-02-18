@@ -2,15 +2,13 @@ namespace DynamicSpecs.Core.WorkflowExtensions
 {
     using System;
 
-    public class DefaultTypeHandler<TSource, TTarget> : IHandleDefaultTypes, IRegisterTypesFor
+    public class DefaultTypeHandler<TSource, TTarget> : IHandleDefaultTypes
         where TTarget : class
         where TSource : class, TTarget
     {
         private Type MappingTargetType { get; set; }
 
         private Type MappingSourceType { get; set; }
-
-        private Type TargetType { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultTypeHandler{TSource, TTarget}"/> class.
@@ -20,7 +18,6 @@ namespace DynamicSpecs.Core.WorkflowExtensions
             this.MappingTargetType = typeof(TTarget);
             this.MappingSourceType = typeof(TSource);
         }
-
 
         /// <summary>
         /// Registers default types at the given registry.
@@ -32,15 +29,6 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         }
 
         /// <summary>
-        /// Defines for which type the default types are registred.
-        /// </summary>
-        /// <typeparam name="T">Type for which to register default types.</typeparam>
-        public void For<T>()
-        {
-            this.TargetType = typeof(T);
-        }
-
-        /// <summary>
         /// Determines whether the handled type is applicable for the specific type.
         /// </summary>
         /// <param name="type">The which shall be checked.</param>
@@ -49,7 +37,7 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         /// </returns>
         public bool IsApplicableFor(Type type)
         {
-            return type == this.TargetType;
+            return type == this.MappingTargetType || type == this.MappingSourceType;
         }
     }
 }
