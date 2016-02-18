@@ -3,8 +3,7 @@
     using DynamicSpecs.Core.WorkflowExtensions;
 
     using global::NUnit.Framework;
-
-
+    
     [SetUpFixture]
     public class Configuration : Extensions
     {

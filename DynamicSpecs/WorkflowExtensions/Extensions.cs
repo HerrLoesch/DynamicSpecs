@@ -13,7 +13,10 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         /// </summary>
         private static readonly Dictionary<Type, List<IExtend>> RegisteredExtensions = new Dictionary<Type, List<IExtend>>();
 
-        internal static readonly List<IHandleTypes> DefaultTypeRegistrations = new List<IHandleTypes>();
+        /// <summary>
+        /// The default types to registration.
+        /// </summary>
+        internal static readonly List<IHandleDefaultTypes> DefaultTypeRegistrations = new List<IHandleDefaultTypes>();
         
         /// <summary>
         /// Tries the get a list of extensions for the given type.
@@ -70,13 +73,13 @@ namespace DynamicSpecs.Core.WorkflowExtensions
         /// <typeparam name="TTarget">The type of the target.</typeparam>
         /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <returns></returns>
-        protected static IHandleTypes Provide<TTarget, TSource>() 
+        protected static IRegisterTypesFor Provide<TTarget, TSource>() 
             where TSource : class 
             where TTarget : class, TSource
         {
             lock (DefaultTypeRegistrations)
             {
-                var typeHandler = new TypeHandler<TTarget, TSource>();
+                var typeHandler = new DefaultTypeHandler<TTarget, TSource>();
                 DefaultTypeRegistrations.Add(typeHandler);
 
                 return typeHandler;
