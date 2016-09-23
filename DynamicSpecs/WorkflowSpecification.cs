@@ -48,6 +48,20 @@
         /// <summary>
         /// Method containing all code needed during the when phase.
         /// </summary>
+        /// <param name="supporter">
+        /// Class containing support code for a test run.
+        /// </param>
+        /// <returns>
+        /// Instance of <see cref="ISupport"/>.
+        /// </returns>
+        public ISupport When(ISupport supporter)
+        {
+            return this.InitializeSupportClass(supporter);
+        }
+
+        /// <summary>
+        /// Method containing all code needed during the when phase.
+        /// </summary>
         public virtual void Given()
         {
         }
@@ -75,6 +89,19 @@
         /// <typeparam name="TSupport">Type of the support class.</typeparam>
         /// <returns>Instance of the support class.</returns>
         public virtual TSupport Given<TSupport>() where TSupport : ISupport
+        {
+            var supporter = Activator.CreateInstance<TSupport>();
+            this.InitializeSupportClass(supporter);
+
+            return supporter;
+        }
+
+        /// <summary>
+        /// Executes the given support code after the SUT was instanciated and before the When phase.
+        /// </summary>
+        /// <typeparam name="TSupport">Type of the support class.</typeparam>
+        /// <returns>Instance of the support class.</returns>
+        public virtual TSupport When<TSupport>() where TSupport : ISupport
         {
             var supporter = Activator.CreateInstance<TSupport>();
             this.InitializeSupportClass(supporter);

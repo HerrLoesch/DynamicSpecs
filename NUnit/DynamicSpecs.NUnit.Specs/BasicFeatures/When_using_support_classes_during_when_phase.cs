@@ -6,7 +6,7 @@
 
     using global::NUnit.Framework;
 
-    public class When_using_support_classes : Specifies<DummyClass>
+    public class When_using_support_classes_during_when_phase : Specifies<DummyClass>
     {
         private int result;
 

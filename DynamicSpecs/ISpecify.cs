@@ -39,6 +39,17 @@
         ISupport Given(ISupport supporter);
 
         /// <summary>
+        /// Method containing all code needed during the when phase.
+        /// </summary>
+        /// <param name="supporter">
+        /// Class containing support code for a test run.
+        /// </param>
+        /// <returns>
+        /// Instance of <see cref="ISupport"/>.
+        /// </returns>
+        ISupport When(ISupport supporter);
+
+        /// <summary>
         /// Resolves the instance or mock instance of a given type.
         /// </summary>
         /// <typeparam name="TInstance">Type of the instance which shall be resolved.</typeparam>
