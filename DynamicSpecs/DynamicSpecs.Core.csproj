@@ -50,9 +50,10 @@
     <Compile Include="WorkflowExtensions\RequestTypeAttribute.cs" />
     <Compile Include="WorkflowExtensions\WorkflowPosition.cs" />
     <Compile Include="WorkflowExtensions\IExtend.cs" />
-    <Compile Include="WorkflowSpecification.cs">
+    <Compile Include="TypedWorkflowSpecification.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="WorkflowSpecification.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DynamicSpecs.Core.nuspec" />
