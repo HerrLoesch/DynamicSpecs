@@ -1,4 +1,4 @@
-﻿namespace DynamicSpecs.Core
+namespace DynamicSpecs.Core
 {
     using System;
     using System.Collections.Generic;
@@ -6,20 +6,9 @@
 
     using DynamicSpecs.Core.WorkflowExtensions;
 
-    /// <summary>
-    /// Base class of all specifications, handling the basic workflow.
-    /// </summary>
-    /// <typeparam name="T">
-    /// Type of the system under test.
-    /// </typeparam>
-    public abstract class WorkflowSpecification<T> : ISpecify<T> where T : class
+    public abstract class WorkflowSpecification : ISpecify
     {
         private Type[] specificationsBaseTypes;
-
-        /// <summary>
-        /// Gets or sets an Instance of the SUT.
-        /// </summary>
-        public T SUT { get; protected set; }
 
         /// <summary>
         /// Gets or sets the instance of the central type registry.
@@ -29,7 +18,7 @@
         /// <summary>
         /// Gets or sets the instance of the central type resolver.
         /// </summary>
-        private IResolveTypes TypeResolver { get; set; }
+        protected IResolveTypes TypeResolver { get; set; }
 
         /// <summary>
         /// Method containing all code needed during the when phase.
@@ -132,7 +121,10 @@
 
             this.ExecuteExtensions(WorkflowPosition.SUTCreation);
 
-            this.SUT = this.CreateSut();
+            if (this.WorkflowExtension != null)
+            {
+                this.WorkflowExtension();
+            }
 
             this.ExecuteExtensions(WorkflowPosition.Default, WorkflowPosition.Given);
             
@@ -142,6 +134,8 @@
 
             this.When();
         }
+
+        protected Action WorkflowExtension { get; set; }
 
         /// <summary>
         /// Gets the reference of the central type registration.
@@ -188,15 +182,6 @@
         /// </param>
         protected virtual void RegisterTypes(IRegisterTypes typeRegistration)
         {
-        }
-
-        /// <summary>
-        /// Creates the system Under Test and resolves all it's dependencies.
-        /// </summary>
-        /// <returns>Instance of the SUT.</returns>
-        protected virtual T CreateSut()
-        {
-            return this.TypeResolver.Resolve<T>();
         }
 
         /// <summary>

@@ -6,7 +6,7 @@
     using global::NUnit.Framework;
 
     [TestFixture]
-    public class Specifies<T> : WorkflowSpecification<T> where T : class
+    public class Specifies<T> : TypedWorkflowSpecification<T> where T : class
     {
         /// <summary>
         /// Gets or sets a container holding all registered types and can resolve mocks if no registration was made for a type.
@@ -14,6 +14,48 @@
         public TypeRegistry Registry { get; private set; }
 
         public Specifies()
+        {
+            this.Registry = new TypeRegistry();
+        }
+
+        protected override IRegisterTypes GetTypeRegistry()
+        {
+            return this.Registry;
+        }
+
+        protected override IResolveTypes GetTypeResolver()
+        {
+            return this.Registry;
+        }
+
+        [TestFixtureSetUp]
+        public override void Setup()
+        {
+            this.Run();
+        }
+
+        [TestFixtureTearDown]
+        public void AfterSpecs()
+        {
+            this.OnSpecExecutionCompleted();
+        }
+
+        [TearDown]
+        public void AfterThenStep()
+        {
+            this.OnThenIsCompleted();
+        }
+    }
+
+    [TestFixture]
+    public class SpecifiesWithoutType : WorkflowSpecification
+    {
+        /// <summary>
+        /// Gets or sets a container holding all registered types and can resolve mocks if no registration was made for a type.
+        /// </summary>
+        public TypeRegistry Registry { get; private set; }
+
+        public SpecifiesWithoutType()
         {
             this.Registry = new TypeRegistry();
         }
