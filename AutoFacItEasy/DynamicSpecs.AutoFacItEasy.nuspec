@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright 2015 Hendrik Loesch</copyright>
+    <copyright>Copyright 2016 Hendrik Loesch</copyright>
     <tags>DynamicSpecs Specification AutoFac BDD TDD</tags>
     <dependencies>
       <dependency id="DynamicSpecs.Core" version="$version$" />

@@ -13,6 +13,9 @@
     <description>$description$</description>
     <releaseNotes>Extensions can now be registered for multiple steps and they can determin in which step the are executed.</releaseNotes>
     <copyright>Copyright 2016 Hendrik Loesch</copyright>
-    <tags>DynamicSpecs Specification Test NUnit MSTest BDD TDD</tags>
+    <tags>DynamicSpecs Specification Test XUnit BDD TDD</tags>
+    <dependencies>
+      <dependency id="DynamicSpecs.AutoFacItEasy" version="$version$" />
+    </dependencies>
   </metadata>
 </package>
