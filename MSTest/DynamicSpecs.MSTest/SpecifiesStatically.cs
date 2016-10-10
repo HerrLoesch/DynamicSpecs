@@ -1,18 +1,17 @@
-﻿
-
-namespace DynamicSpecs.MSTest
+﻿namespace DynamicSpecs.MSTest
 {
     using DynamicSpecs.AutoFacItEasy;
     using DynamicSpecs.Core;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    public class Specifies<T> : TypedWorkflowSpecification<T> where T : class
+    public class SpecifiesStatically : WorkflowSpecification
     {
         private readonly TypeRegistry typeRegistry;
 
-        private static Specifies<T> instanceForCleanUp;
+        private static SpecifiesStatically instanceForCleanUp;
 
-        protected Specifies()
+        protected SpecifiesStatically()
         {
             this.typeRegistry = new TypeRegistry();
             instanceForCleanUp = this;

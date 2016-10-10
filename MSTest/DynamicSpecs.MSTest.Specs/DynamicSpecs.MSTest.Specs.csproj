@@ -78,6 +78,7 @@
     <Compile Include="BasicFeatures\When_a_mock_is_used.cs" />
     <Compile Include="BasicFeatures\When_a_specification_is_created.cs" />
     <Compile Include="BasicFeatures\When_specific_type_is_configured.cs" />
+    <Compile Include="BasicFeatures\When_static_class_is_tested.cs" />
     <Compile Include="BasicFeatures\When_using_support_classes.cs" />
     <Compile Include="ExampleClasses\DummyClass.cs" />
     <Compile Include="ExampleClasses\IAmAServiceDummy.cs" />

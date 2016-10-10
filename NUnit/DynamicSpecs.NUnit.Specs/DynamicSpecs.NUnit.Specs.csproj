@@ -86,7 +86,9 @@
     <Compile Include="BasicFeatures\When_a_specification_is_created.cs" />
     <Compile Include="BasicFeatures\When_specific_instance_is_configured.cs" />
     <Compile Include="BasicFeatures\When_specific_type_is_configured.cs" />
-    <Compile Include="BasicFeatures\When_using_support_classes.cs" />
+    <Compile Include="BasicFeatures\When_static_class_is_tested.cs" />
+    <Compile Include="BasicFeatures\When_using_support_classes_during_given_phase.cs" />
+    <Compile Include="BasicFeatures\When_using_support_classes_during_when_phase.cs" />
     <Compile Include="ExampleClasses\DummyClass.cs" />
     <Compile Include="ExampleClasses\IAmAServiceDummy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

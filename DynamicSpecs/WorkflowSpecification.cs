@@ -1,4 +1,4 @@
-﻿namespace DynamicSpecs.Core
+namespace DynamicSpecs.Core
 {
     using System;
     using System.Collections.Generic;
@@ -6,20 +6,9 @@
 
     using DynamicSpecs.Core.WorkflowExtensions;
 
-    /// <summary>
-    /// Base class of all specifications, handling the basic workflow.
-    /// </summary>
-    /// <typeparam name="T">
-    /// Type of the system under test.
-    /// </typeparam>
-    public abstract class WorkflowSpecification<T> : ISpecify<T> where T : class
+    public abstract class WorkflowSpecification : ISpecify
     {
         private Type[] specificationsBaseTypes;
-
-        /// <summary>
-        /// Gets or sets an Instance of the SUT.
-        /// </summary>
-        public T SUT { get; protected set; }
 
         /// <summary>
         /// Gets or sets the instance of the central type registry.
@@ -29,7 +18,7 @@
         /// <summary>
         /// Gets or sets the instance of the central type resolver.
         /// </summary>
-        private IResolveTypes TypeResolver { get; set; }
+        protected IResolveTypes TypeResolver { get; set; }
 
         /// <summary>
         /// Method containing all code needed during the when phase.
@@ -41,6 +30,20 @@
         /// Instance of <see cref="ISupport"/>.
         /// </returns>
         public ISupport Given(ISupport supporter)
+        {
+            return this.InitializeSupportClass(supporter);
+        }
+
+        /// <summary>
+        /// Method containing all code needed during the when phase.
+        /// </summary>
+        /// <param name="supporter">
+        /// Class containing support code for a test run.
+        /// </param>
+        /// <returns>
+        /// Instance of <see cref="ISupport"/>.
+        /// </returns>
+        public ISupport When(ISupport supporter)
         {
             return this.InitializeSupportClass(supporter);
         }
@@ -83,10 +86,17 @@
         }
 
         /// <summary>
-        /// This method is called by the child class to call <seealso cref="Run" /> when
-        /// ever the testing framework starts a testrun for a particular spec.
+        /// Executes the given support code after the SUT was instanciated and before the When phase.
         /// </summary>
-        public abstract void Setup();
+        /// <typeparam name="TSupport">Type of the support class.</typeparam>
+        /// <returns>Instance of the support class.</returns>
+        public virtual TSupport When<TSupport>() where TSupport : ISupport
+        {
+            var supporter = Activator.CreateInstance<TSupport>();
+            this.InitializeSupportClass(supporter);
+
+            return supporter;
+        }
 
         /// <summary>
         /// Executes all needed code necessary for a test run of this instance in a particular order. 
@@ -105,7 +115,10 @@
 
             this.ExecuteExtensions(WorkflowPosition.SUTCreation);
 
-            this.SUT = this.CreateSut();
+            if (this.WorkflowExtension != null)
+            {
+                this.WorkflowExtension();
+            }
 
             this.ExecuteExtensions(WorkflowPosition.Default, WorkflowPosition.Given);
             
@@ -115,6 +128,8 @@
 
             this.When();
         }
+
+        protected Action WorkflowExtension { get; set; }
 
         /// <summary>
         /// Gets the reference of the central type registration.
@@ -161,15 +176,6 @@
         /// </param>
         protected virtual void RegisterTypes(IRegisterTypes typeRegistration)
         {
-        }
-
-        /// <summary>
-        /// Creates the system Under Test and resolves all it's dependencies.
-        /// </summary>
-        /// <returns>Instance of the SUT.</returns>
-        protected virtual T CreateSut()
-        {
-            return this.TypeResolver.Resolve<T>();
         }
 
         /// <summary>

@@ -1,7 +1,8 @@
-[![Stories in Ready](https://badge.waffle.io/HerrLoesch/DynamicSpecs.png?label=ready&title=Ready)](https://waffle.io/HerrLoesch/DynamicSpecs) [![Build status](https://ci.appveyor.com/api/projects/status/w325gb28ccbai14w?svg=true)](https://ci.appveyor.com/project/HerrLoesch/dynamicspecs)
+[![Build status](https://ci.appveyor.com/api/projects/status/w325gb28ccbai14w?svg=true)](https://ci.appveyor.com/project/HerrLoesch/dynamicspecs)
 
-# DynamicSpecs
-Dynamic Specs is an easy to use specfication framework. It extends NUnit, MSTest or other similiar testing frameworks with a BDD style workflow.
+<img src="/Ressources/logo.png" width="200" /> 
+
+Dynamic Specs is an easy to use specfication framework. It extends NUnit, Xunit.Net, MSTest or other similiar testing frameworks with a BDD style workflow.
 
 ##Table of contents
 - [Why another BDD framework?](#why-another-bdd-framework)
@@ -10,6 +11,7 @@ Dynamic Specs is an easy to use specfication framework. It extends NUnit, MSTest
 	- [Reduce boiler plate code](#reduce-boiler-plate-code)
 	- [Integration tests without boiler plate code](#integration-tests-without-boiler-plate-code)
 - [How to use it with MS Test?](#how-to-use-it-with-ms-test)
+- [How to use it with XUnit.net?](#how-to-use-it-with-xunit.net)
 - [How to use it with an other framework?](#how-to-use-it-with-an-other-framework)
 
 
@@ -238,9 +240,8 @@ In combination with support classes, you get tests which focus just on the thing
 ##How to use it with MS Test?
 Todo...
 
-##How to use it with an other framework?
+##How to use it with XUnit.Net?
 Todo...
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/HerrLoesch/dynamicspecs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+##How to use it with an other framework?
+Todo...
