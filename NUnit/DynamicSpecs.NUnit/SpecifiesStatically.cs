@@ -29,7 +29,7 @@ namespace DynamicSpecs.NUnit
         }
 
         [TestFixtureSetUp]
-        public override void Setup()
+        public void Setup()
         {
             this.Run();
         }

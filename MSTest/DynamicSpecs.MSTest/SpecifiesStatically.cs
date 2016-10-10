@@ -28,7 +28,7 @@
         }
 
         [TestInitialize]
-        public override void Setup()
+        public void Setup()
         {
             base.Run();
         }

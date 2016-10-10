@@ -1,21 +1,19 @@
-﻿namespace DynamicSpecs.NUnit
+namespace DynamicSpecs.XUnit
 {
     using DynamicSpecs.AutoFacItEasy;
     using DynamicSpecs.Core;
 
-    using global::NUnit.Framework;
-
-    [TestFixture]
-    public class Specifies<T> : TypedWorkflowSpecification<T> where T : class
+    public class SpecifiesStatically : WorkflowSpecification
     {
         /// <summary>
         /// Gets or sets a container holding all registered types and can resolve mocks if no registration was made for a type.
         /// </summary>
         public TypeRegistry Registry { get; private set; }
 
-        public Specifies()
+        public SpecifiesStatically()
         {
             this.Registry = new TypeRegistry();
+            this.Run();
         }
 
         protected override IRegisterTypes GetTypeRegistry()
@@ -28,22 +26,11 @@
             return this.Registry;
         }
 
-        [TestFixtureSetUp]
-        public void Setup()
-        {
-            this.Run();
-        }
-
-        [TestFixtureTearDown]
-        public void AfterSpecs()
-        {
-            this.OnSpecExecutionCompleted();
-        }
-
-        [TearDown]
-        public void AfterThenStep()
+        ~SpecifiesStatically()
         {
             this.OnThenIsCompleted();
+
+            this.OnSpecExecutionCompleted();
         }
     }
 }
