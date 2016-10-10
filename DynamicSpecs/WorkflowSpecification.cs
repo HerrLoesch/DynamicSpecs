@@ -99,12 +99,6 @@ namespace DynamicSpecs.Core
         }
 
         /// <summary>
-        /// This method is called by the child class to call <seealso cref="Run" /> when
-        /// ever the testing framework starts a testrun for a particular spec.
-        /// </summary>
-        public abstract void Setup();
-
-        /// <summary>
         /// Executes all needed code necessary for a test run of this instance in a particular order. 
         /// </summary>
         protected void Run()

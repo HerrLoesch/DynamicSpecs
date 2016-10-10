@@ -1,11 +1,9 @@
-﻿namespace DynamicSpecs.NUnit
+﻿namespace DynamicSpecs.XUnit
 {
     using DynamicSpecs.AutoFacItEasy;
     using DynamicSpecs.Core;
 
-    using global::NUnit.Framework;
 
-    [TestFixture]
     public class Specifies<T> : TypedWorkflowSpecification<T> where T : class
     {
         /// <summary>
@@ -16,6 +14,7 @@
         public Specifies()
         {
             this.Registry = new TypeRegistry();
+            this.Run();
         }
 
         protected override IRegisterTypes GetTypeRegistry()
@@ -28,22 +27,10 @@
             return this.Registry;
         }
 
-        [TestFixtureSetUp]
-        public void Setup()
-        {
-            this.Run();
-        }
-
-        [TestFixtureTearDown]
-        public void AfterSpecs()
-        {
-            this.OnSpecExecutionCompleted();
-        }
-
-        [TearDown]
-        public void AfterThenStep()
+        ~Specifies()
         {
             this.OnThenIsCompleted();
+            this.OnSpecExecutionCompleted();
         }
     }
 }
