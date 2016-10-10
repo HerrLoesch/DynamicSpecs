@@ -39,6 +39,11 @@ pushd NUnit\DynamicSpecs.NUnit\
 if errorlevel 1 goto error
 popd
 
+pushd XUnit\DynamicSpecs.XUnit\
+%NUGETEXE% pack -Prop Configuration=Release -OutputDirectory %NUGETDST%
+if errorlevel 1 goto error
+popd
+
 
 
 
