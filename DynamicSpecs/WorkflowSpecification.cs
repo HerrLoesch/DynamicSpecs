@@ -86,6 +86,19 @@ namespace DynamicSpecs.Core
         }
 
         /// <summary>
+        /// Executes the given support code after the SUT was instanciated and during the Given phase.
+        /// </summary>
+        /// <typeparam name="TSupport">Type of the support class.</typeparam>
+        /// <returns>Instance of the support class.</returns>
+        public virtual TSupport Given<TSupport, T>(T supportData) where TSupport : ISupport<T>
+        {
+            var supporter = Activator.CreateInstance<TSupport>();
+            this.InitializeSupportClass(supporter, supportData);
+
+            return supporter;
+        }
+
+        /// <summary>
         /// Executes the given support code after the SUT was instanciated and before the When phase.
         /// </summary>
         /// <typeparam name="TSupport">Type of the support class.</typeparam>
@@ -94,6 +107,19 @@ namespace DynamicSpecs.Core
         {
             var supporter = Activator.CreateInstance<TSupport>();
             this.InitializeSupportClass(supporter);
+
+            return supporter;
+        }
+
+        /// <summary>
+        /// Executes the given support code after the SUT was instanciated and before the When phase.
+        /// </summary>
+        /// <typeparam name="TSupport">Type of the support class.</typeparam>
+        /// <returns>Instance of the support class.</returns>
+        public virtual TSupport When<TSupport, T>(T supportData) where TSupport : ISupport<T>
+        {
+            var supporter = Activator.CreateInstance<TSupport>();
+            this.InitializeSupportClass(supporter, supportData);
 
             return supporter;
         }
@@ -236,6 +262,18 @@ namespace DynamicSpecs.Core
         private ISupport InitializeSupportClass(ISupport supporter)
         {
             supporter.Support(this);
+            return supporter;
+        }
+
+        /// <summary>
+        /// Initializes the given support class.
+        /// </summary>
+        /// <param name="supporter">Class which contains code to support a test run.</param>
+        /// <param name="supportData">Data used during support actions.</param>
+        /// <returns>Instance of <see cref="ISupport"/></returns>
+        private ISupport<T> InitializeSupportClass<T>(ISupport<T> supporter, T supportData)
+        {
+            supporter.Support(this, supportData);
             return supporter;
         }
     }

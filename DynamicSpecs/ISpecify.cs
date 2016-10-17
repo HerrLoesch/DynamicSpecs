@@ -41,6 +41,14 @@
         /// <summary>
         /// Method containing all code needed during the when phase.
         /// </summary>
+        /// <returns>
+        /// Instance of <see cref="ISupport"/>.
+        /// </returns>
+        TSupport Given<TSupport, T>(T supportData) where TSupport : ISupport<T>;
+
+        /// <summary>
+        /// Method containing all code needed during the when phase.
+        /// </summary>
         /// <param name="supporter">
         /// Class containing support code for a test run.
         /// </param>
@@ -48,6 +56,14 @@
         /// Instance of <see cref="ISupport"/>.
         /// </returns>
         ISupport When(ISupport supporter);
+
+        /// <summary>
+        /// Method containing all code needed during the when phase.
+        /// </summary>
+        /// <returns>
+        /// Instance of <see cref="ISupport"/>.
+        /// </returns>
+        TSupport When<TSupport, T>(T supportData) where TSupport : ISupport<T>;
 
         /// <summary>
         /// Resolves the instance or mock instance of a given type.
