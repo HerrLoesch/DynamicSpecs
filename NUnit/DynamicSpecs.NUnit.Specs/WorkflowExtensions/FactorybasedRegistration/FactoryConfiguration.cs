@@ -7,7 +7,7 @@
     [SetUpFixture]
     public class FactoryConfiguration : Extensions
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void RegisterExtensions()
         {
             Extend<IRequestData>().With<IProvideData>(() => new DataProvider());

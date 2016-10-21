@@ -28,13 +28,13 @@
             return this.Registry;
         }
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
             this.Run();
         }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void AfterSpecs()
         {
             this.OnSpecExecutionCompleted();
