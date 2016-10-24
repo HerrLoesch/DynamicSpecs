@@ -2,6 +2,7 @@
 {
     using DynamicSpecs.NUnit;
     using NUnit.Framework;
+
     public class When_NuGet_works_as_expected : Specifies<object>
     {
         [Test]
