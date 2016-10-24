@@ -6,7 +6,7 @@
     using global::NUnit.Framework;
 
     [TestFixture]
-    public class Specifies<T> : TypedWorkflowSpecification<T> where T : class
+    public abstract class Specifies<T> : TypedWorkflowSpecification<T> where T : class
     {
         /// <summary>
         /// Gets or sets a container holding all registered types and can resolve mocks if no registration was made for a type.
