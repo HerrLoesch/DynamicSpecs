@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using System.Reflection;
 
     /// <summary>
     /// Particular extension point during the execution flow of a particular specification.
@@ -86,7 +85,7 @@
         public ExtensionPoint<TTargetType> With<TExtensionType>() where TExtensionType : IExtend<TTargetType>
         {
             var type = typeof(TExtensionType);
-            var defaultConstructor = type.GetTypeInfo().DeclaredConstructors.FirstOrDefault(x => x.GetParameters().Length == 0);
+            var defaultConstructor = type.GetConstructors().FirstOrDefault(x => x.GetParameters().Length == 0);
 
             if (defaultConstructor == null)
             {

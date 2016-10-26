@@ -3,7 +3,6 @@ namespace DynamicSpecs.Core
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection;
 
     using DynamicSpecs.Core.WorkflowExtensions;
 
@@ -157,7 +156,7 @@ namespace DynamicSpecs.Core
 
         private void RegisterDefaultTypes()
         {
-            var typeAttributes = this.GetType().GetTypeInfo().GetCustomAttributes(true);
+            var typeAttributes = this.GetType().GetCustomAttributes(true);
             var typeRequests =
                 typeAttributes.Where(x => x.GetType() == typeof(RequestTypeAttribute))
                     .Select(y => ((RequestTypeAttribute)y).RequestedType);
@@ -226,7 +225,7 @@ namespace DynamicSpecs.Core
         /// </summary>
         private void DetermineTypesOfThisSpec()
         {
-            this.specificationsBaseTypes = this.GetType().GetTypeInfo().ImplementedInterfaces.ToArray();
+            this.specificationsBaseTypes = this.GetType().GetInterfaces();
         }
 
         /// <summary>
