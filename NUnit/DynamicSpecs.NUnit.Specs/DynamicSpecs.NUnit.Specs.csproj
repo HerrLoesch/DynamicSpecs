@@ -108,6 +108,11 @@
     <Compile Include="ExampleClasses\DummyClass.cs" />
     <Compile Include="ExampleClasses\IAmAServiceDummy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\FactoryConfiguration.cs" />
+    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\ConcreteClass.cs" />
+    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\IDummyInterface.cs" />
+    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\TypeProvider.cs" />
+    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\When_a_concrete_type_is_registered.cs" />
     <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\Configuration.cs" />
     <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\DefaultImplemenation.cs" />
     <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\IDefaultImplementation.cs" />

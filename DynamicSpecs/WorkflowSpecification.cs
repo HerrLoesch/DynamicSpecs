@@ -13,7 +13,7 @@ namespace DynamicSpecs.Core
         /// <summary>
         /// Gets or sets the instance of the central type registry.
         /// </summary>
-        private IRegisterTypes TypeRegistry { get; set; }
+        public IRegisterTypes TypeRegistry { get; private set; }
 
         /// <summary>
         /// Gets or sets the instance of the central type resolver.

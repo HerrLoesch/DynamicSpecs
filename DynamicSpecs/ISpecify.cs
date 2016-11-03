@@ -18,6 +18,11 @@
     public interface ISpecify
     {
         /// <summary>
+        /// Gets or sets the instance of the central type registry.
+        /// </summary>
+        IRegisterTypes TypeRegistry { get; }
+
+        /// <summary>
         /// Method containing all code needed during the given phase.
         /// </summary>
         void Given();
