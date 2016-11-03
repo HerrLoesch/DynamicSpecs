@@ -289,3 +289,18 @@ Same as in specifications, use GetInstance on the specification you get as a par
         }
     }
 ```
+
+###How can I configure an extension for all of my specifications?
+All specifications implement the ISpecify interface thus you can register your extension for this interface and all specifications will be covered.
+```C#
+    [SetUpFixture]
+    public class Configuration : Extensions
+    {
+        [SetUp]
+        public void Setup()
+        {
+            Extend<ISpecify>().With<DefaultSettingsProvider>().Before(WorkflowPosition.Given);
+        }
+    }
+```
+
