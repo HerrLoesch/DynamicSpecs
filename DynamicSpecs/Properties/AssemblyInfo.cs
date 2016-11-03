@@ -1,5 +1,4 @@
-﻿using System.Resources;
-using System.Reflection;
+﻿using System.Reflection;
 
 [assembly: AssemblyTitle("DynamicSpecs")]
 [assembly: AssemblyDescription("A dynamic specification framework for C#.")]
