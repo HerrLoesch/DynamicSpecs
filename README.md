@@ -13,6 +13,7 @@ Dynamic Specs is an easy to use specfication framework. It extends NUnit, Xunit.
 - [How to use it with MS Test?](#how-to-use-it-with-ms-test)
 - [How to use it with XUnit.net?](#how-to-use-it-with-xunit.net)
 - [How to use it with an other framework?](#how-to-use-it-with-an-other-framework)
+- [FAQ](#faq)
 
 
 
@@ -245,3 +246,61 @@ Todo...
 
 ##How to use it with an other framework?
 Todo...
+
+##FAQ
+###How do I register concrete types before the SUT is created?
+Simply override the RegisterTypes method of your specification and use the type registration to register concrete types. This registration can handle generic types as well as class instances.
+```C#
+        protected override void RegisterTypes(IRegisterTypes typeRegistration)
+        {
+            typeRegistration.Register<CsvImporter, IDataImporter>();
+	    typeRegistration.Register<ILogger>(new Logger());
+        }
+```
+###How do I get the instance injected to my SUT?
+Just use the GetInstance method with the type you want to get.
+```C#
+        [Test]
+        public void Then_no_error_dialog_is_shown()
+        {
+            var errorHandler = this.GetInstance<IErrorHandler>();
+	    
+	    // This part is specific to fake it easy.
+            A.CallTo(() => errorHandler.ShowErrorCollection(A<string>.Ignored, A<List<string>>.Ignored)).MustNotHaveHappened();
+        }
+```
+
+###How do I get an instance within a support class?
+Same as in specifications, use GetInstance on the specification you get as a parameter.
+```C#
+    public class Data_can_be_imported : ISupport
+    {
+        public ValueTable Data {get; set; }
+
+        public void Support(ISpecify specification)
+        {
+            var importer = specification.GetInstance<IDataImporter>();
+
+	    // This part is specific to fake it easy.
+            ValueTable ignored;
+            A.CallTo(() => importer.TryImport(A<string>.Ignored, A<string>.Ignored, out ignored))
+                .Returns(true)
+                .AssignsOutAndRefParameters(this.Data);
+        }
+    }
+```
+
+###How can I configure an extension for all of my specifications?
+All specifications implement the ISpecify interface thus you can register your extension for this interface and all specifications will be covered.
+```C#
+    [SetUpFixture]
+    public class Configuration : Extensions
+    {
+        [SetUp]
+        public void Setup()
+        {
+            Extend<ISpecify>().With<DefaultSettingsProvider>().Before(WorkflowPosition.Given);
+        }
+    }
+```
+

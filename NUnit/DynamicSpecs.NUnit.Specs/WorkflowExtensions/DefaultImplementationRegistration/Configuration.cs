@@ -7,7 +7,7 @@
     [SetUpFixture]
     public class Configuration : Extensions
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void RegisterExtensions()
         {
             Provide<DefaultImplemenation, IDefaultImplementation>();

@@ -7,7 +7,7 @@
     [SetUpFixture]
     public class TypeBasedConfiguration : Extensions
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void RegisterExtensions()
         {
             Extend<IRequestData>().With<DataProvider>();

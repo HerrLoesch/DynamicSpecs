@@ -1,6 +1,5 @@
 ﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
 {
-    using DynamicSpecs.Core;
     using DynamicSpecs.Core.WorkflowExtensions;
     using DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.DataProvider;
     using DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes.Interfaces;
@@ -10,7 +9,7 @@
     [SetUpFixture]
     public class Configuration : Extensions
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void RegisterExtensions()
         {
             Extend<IRequestDataByDefault>().With<DataByDefault>();
