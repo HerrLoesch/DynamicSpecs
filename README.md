@@ -304,3 +304,27 @@ All specifications implement the ISpecify interface thus you can register your e
     }
 ```
 
+###How can I register a concrete type for an interface for all my specifications?
+You need a configuration class inheriting from Extensions class. This registers your type extension for ISpecify and is triggered before the creation of the SUT.
+```C#
+    [SetUpFixture]
+    public class Configuration : Extensions
+    {
+        [SetUp]
+        public void Setup()
+        {
+            Extend<ISpecify>().With<DefaultTypeProvider>().Before(WorkflowPosition.SUTCreation);
+        }
+    }
+```
+
+Then you need the actual extension class which uses the TypeRegistry property of the target specification to register all types.
+```C#
+    public class DefaultTypeProvider : IExtend<ISpecify>
+    {
+        public void Extend(ISpecify target, WorkflowPosition currentPosition)
+        {
+            target.TypeRegistry.Register<ConcreteClass, IAbstractInterface>();
+        }
+    }
+```
