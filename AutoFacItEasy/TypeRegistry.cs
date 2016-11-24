@@ -32,6 +32,16 @@ namespace DynamicSpecs.AutoFacItEasy
         }
 
         /// <summary>
+        /// Registers an instance as a target type.
+        /// </summary>
+        /// <typeparam name="TTarget">Target type as which the source type is used.</typeparam>
+        /// <param name="source">Registered instance.</param>
+        public void Register<TTarget>(TTarget source) where TTarget : class
+        {
+            this.fakeContainer.Provide(source);
+        }
+
+        /// <summary>
         /// Registers a type as a target type.
         /// </summary>
         /// <typeparam name="TSource">Source type which is registered.</typeparam>
