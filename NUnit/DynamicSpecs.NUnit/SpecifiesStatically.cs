@@ -8,27 +8,29 @@ namespace DynamicSpecs.NUnit
     [TestFixture]
     public class SpecifiesStatically : WorkflowSpecification
     {
+        private readonly SpecificationEngine engine;
 
         public SpecifiesStatically() : base(new TypeStoreFactory())
         {
+            this.engine = new SpecificationEngine(this);
         }
 
         [OneTimeSetUp]
         public void Setup()
         {
-            this.Engine.Run();
+            this.engine.Run();
         }
 
         [OneTimeTearDown]
         public void AfterSpecs()
         {
-            this.Engine.OnSpecExecutionCompleted();
+            this.engine.OnSpecExecutionCompleted();
         }
 
         [TearDown]
         public void AfterThenStep()
         {
-            this.Engine.OnThenIsCompleted();
+            this.engine.OnThenIsCompleted();
         }
     }
 }

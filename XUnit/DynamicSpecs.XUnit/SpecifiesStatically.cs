@@ -5,16 +5,19 @@ namespace DynamicSpecs.XUnit
 
     public class SpecifiesStatically : WorkflowSpecification
     {
+        private SpecificationEngine engine;
+
         public SpecifiesStatically() : base(new TypeStoreFactory())
         {
-            this.Engine.Run();
+            this.engine.Run();
+            this.engine = new SpecificationEngine(this);
         }
 
         ~SpecifiesStatically()
         {
-            this.Engine.OnThenIsCompleted();
+            this.engine.OnThenIsCompleted();
 
-            this.Engine.OnSpecExecutionCompleted();
+            this.engine.OnSpecExecutionCompleted();
         }
     }
 }

@@ -9,28 +9,30 @@
     {
 
         private static SpecifiesStatically instanceForCleanUp;
+        private SpecificationEngine engine;
 
         protected SpecifiesStatically() : base(new TypeStoreFactory())
         {
             instanceForCleanUp = this;
+            this.engine = new SpecificationEngine(this);
         }
 
         [TestInitialize]
         public void Setup()
         {
-            base.Engine.Run();
+            this.engine.Run();
         }
 
         [TestCleanup]
         public void StepwiseCleanup()
         {
-            Engine.OnThenIsCompleted();
+            this.engine.OnThenIsCompleted();
         }
 
         [ClassCleanup]
         public static void CleanUp()
         {
-            instanceForCleanUp.Engine.OnSpecExecutionCompleted();
+            instanceForCleanUp.engine.OnSpecExecutionCompleted();
         }
     }
 }

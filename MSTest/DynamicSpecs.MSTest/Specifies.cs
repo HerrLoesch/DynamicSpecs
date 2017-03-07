@@ -10,27 +10,30 @@ namespace DynamicSpecs.MSTest
     {
         private static Specifies<T> instanceForCleanUp;
 
+        private SpecificationEngine engine;
+
         protected Specifies() : base(new TypeStoreFactory()) 
         {
             instanceForCleanUp = this;
+            this.engine = new SpecificationEngine(this);
         }
 
         [TestInitialize]
         public void Setup()
         {
-            base.Engine.Run();
+            this.engine.Run();
         }
 
         [TestCleanup]
         public void StepwiseCleanup()
         {
-            this.Engine.OnThenIsCompleted();
+            this.engine.OnThenIsCompleted();
         }
 
         [ClassCleanup]
         public static void CleanUp()
         {
-            instanceForCleanUp.Engine.OnSpecExecutionCompleted();
+            instanceForCleanUp.engine.OnSpecExecutionCompleted();
         }
     }
 }

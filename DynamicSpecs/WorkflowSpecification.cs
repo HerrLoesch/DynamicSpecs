@@ -9,12 +9,9 @@ namespace DynamicSpecs.Core
     {
         private readonly ICreateTypeStores typeStoreFactory;
 
-        public SpecificationEngine Engine { get; }
-
         public WorkflowSpecification(ICreateTypeStores typeStoreFactory)
         {
             this.typeStoreFactory = typeStoreFactory;
-            Engine = new SpecificationEngine(this);
         }
 
         internal void Initialize()
