@@ -1,15 +1,28 @@
 namespace DynamicSpecs.Core
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
 
     using DynamicSpecs.Core.WorkflowExtensions;
 
     public abstract class WorkflowSpecification : ISpecify
     {
-        private Type[] specificationsBaseTypes;
+        private readonly ICreateTypeStores typeStoreFactory;
 
+        public SpecificationEngine Engine { get; }
+
+        public WorkflowSpecification(ICreateTypeStores typeStoreFactory)
+        {
+            this.typeStoreFactory = typeStoreFactory;
+            Engine = new SpecificationEngine(this);
+        }
+
+        internal void Initialize()
+        {
+            this.TypeRegistry = this.typeStoreFactory.GetTypeRegistry();
+            this.TypeResolver = this.typeStoreFactory.GetTypeResolver();
+        }
+        
         /// <summary>
         /// Gets or sets the instance of the central type registry.
         /// </summary>
@@ -18,7 +31,7 @@ namespace DynamicSpecs.Core
         /// <summary>
         /// Gets or sets the instance of the central type resolver.
         /// </summary>
-        protected IResolveTypes TypeResolver { get; set; }
+        protected IResolveTypes TypeResolver { get; private set; }
 
         /// <summary>
         /// Method containing all code needed during the when phase.
@@ -124,56 +137,9 @@ namespace DynamicSpecs.Core
             return supporter;
         }
 
-        /// <summary>
-        /// Executes all needed code necessary for a test run of this instance in a particular order. 
-        /// </summary>
-        protected void Run()
-        {
-            this.DetermineTypesOfThisSpec();
-            
-            this.TypeRegistry = this.GetTypeRegistry();
-
-            this.ExecuteExtensions(WorkflowPosition.TypeRegistration);
-
-            this.RegisterTypes();
-
-            this.TypeResolver = this.GetTypeResolver();
-
-            this.ExecuteExtensions(WorkflowPosition.SUTCreation);
-
-            if (this.WorkflowExtension != null)
-            {
-                this.WorkflowExtension();
-            }
-
-            this.ExecuteExtensions(WorkflowPosition.Default, WorkflowPosition.Given);
-            
-            this.Given();
-
-            this.ExecuteExtensions(WorkflowPosition.When);
-
-            this.When();
-        }
-
-        protected Action WorkflowExtension { get; set; }
-
-        /// <summary>
-        /// Gets the reference of the central type registration.
-        /// </summary>
-        /// <returns>
-        /// The <see cref="IRegisterTypes"/>.
-        /// </returns>
-        protected abstract IRegisterTypes GetTypeRegistry();
-
-        /// <summary>
-        /// Gets the reference to the central instance with which types can be resolved as instances.
-        /// </summary>
-        /// <returns>
-        /// The <see cref="IResolveTypes"/>.
-        /// </returns>
-        protected abstract IResolveTypes GetTypeResolver();
-
-        private void RegisterTypes()
+        internal Action WorkflowExtension { get; set; }
+        
+        internal void RegisterTypes()
         {
             this.RegisterDefaultTypes();
 
@@ -202,56 +168,6 @@ namespace DynamicSpecs.Core
         /// </param>
         protected virtual void RegisterTypes(IRegisterTypes typeRegistration)
         {
-        }
-
-        /// <summary>
-        /// Contains code which hase to be executed after a spec.
-        /// </summary>
-        protected void OnSpecExecutionCompleted()
-        {
-            this.ExecuteExtensions(WorkflowPosition.SpecExecutionCompleted);
-        }
-
-        /// <summary>
-        /// Contains code which has to be executed after each then phase.
-        /// </summary>
-        protected void OnThenIsCompleted()
-        {
-            this.ExecuteExtensions(WorkflowPosition.Then);
-        }
-
-        /// <summary>
-        /// Executes all extensions for <c>this</c> instance based on a workflow step. 
-        /// </summary>
-        /// <param name="targetSteps">The steps for which an extension must be registered to be executed.</param>
-        private void ExecuteExtensions(params WorkflowPosition[] targetSteps)
-        {
-            foreach (var baseType in this.specificationsBaseTypes)
-            {
-                List<IExtend> extensions;
-                if (Extensions.TryGetExtension(baseType, out extensions))
-                {
-                    var extensionsForStep = extensions.Where(x => targetSteps.Any(y => x.WorkflowPosition.HasFlag(y))).ToList();
-                    foreach (var extension in extensionsForStep)
-                    {
-                        foreach (var targetStep in targetSteps)
-                        {
-                            if (targetStep != WorkflowPosition.Default)
-                            {
-                                extension.Extend(this, targetStep);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Determines the types and base types of <c>this</c> spec.
-        /// </summary>
-        private void DetermineTypesOfThisSpec()
-        {
-            this.specificationsBaseTypes = this.GetType().GetInterfaces();
         }
 
         /// <summary>

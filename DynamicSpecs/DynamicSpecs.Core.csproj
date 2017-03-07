@@ -41,7 +41,9 @@
     <Compile Include="IResolveTypes.cs" />
     <Compile Include="ISpecify.cs" />
     <Compile Include="ISupport.cs" />
+    <Compile Include="ICreateTypeStores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecificationEngine.cs" />
     <Compile Include="WorkflowExtensions\Extensions.cs" />
     <Compile Include="WorkflowExtensions\ExtensionPoint.cs" />
     <Compile Include="WorkflowExtensions\IHandleDefaultTypes.cs" />

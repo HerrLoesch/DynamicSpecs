@@ -24,7 +24,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="TypedWorkflowSpecification{T}"/> class.
         /// </summary>
-        public TypedWorkflowSpecification()
+        protected TypedWorkflowSpecification(ICreateTypeStores typeStoreFactory) : base(typeStoreFactory)
         {
             this.WorkflowExtension = this.SetSut;
         }

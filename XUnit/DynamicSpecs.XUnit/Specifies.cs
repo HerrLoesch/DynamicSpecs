@@ -6,31 +6,15 @@
 
     public class Specifies<T> : TypedWorkflowSpecification<T> where T : class
     {
-        /// <summary>
-        /// Gets or sets a container holding all registered types and can resolve mocks if no registration was made for a type.
-        /// </summary>
-        public TypeRegistry Registry { get; private set; }
-
-        public Specifies()
+        public Specifies() : base(new TypeStoreFactory())
         {
-            this.Registry = new TypeRegistry();
-            this.Run();
-        }
-
-        protected override IRegisterTypes GetTypeRegistry()
-        {
-            return this.Registry;
-        }
-
-        protected override IResolveTypes GetTypeResolver()
-        {
-            return this.Registry;
+            this.Engine.Run();
         }
 
         ~Specifies()
         {
-            this.OnThenIsCompleted();
-            this.OnSpecExecutionCompleted();
+            this.Engine.OnThenIsCompleted();
+            this.Engine.OnSpecExecutionCompleted();
         }
     }
 }
