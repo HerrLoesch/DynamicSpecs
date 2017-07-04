@@ -5,6 +5,8 @@ using DynamicSpecs.Core.WorkflowExtensions;
 
 namespace DynamicSpecs.Core
 {
+    using System.Reflection;
+
     public class SpecificationEngine
     {
         private readonly WorkflowSpecification specification;
@@ -90,7 +92,7 @@ namespace DynamicSpecs.Core
         /// </summary>
         private void DetermineTypesOfThisSpec()
         {
-            this.specificationsBaseTypes = this.specification.GetType().GetInterfaces();
+            this.specificationsBaseTypes = this.specification.GetType().GetTypeInfo().ImplementedInterfaces.ToArray();
         }
 
         private Type[] specificationsBaseTypes;
