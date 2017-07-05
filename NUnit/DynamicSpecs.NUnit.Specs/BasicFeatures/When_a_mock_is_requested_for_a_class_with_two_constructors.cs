@@ -1,18 +1,10 @@
-﻿// When_a_mock_is_requested.cs
-// 
-// Comments : 
-// Date     : 2017/07/05
-// Author   : Lösch, Hendrik
-// <copyright file="When_a_mock_is_requested.cs" company="Carl Zeiss Microscopy GmbH">
-//      Copyright (c) Carl Zeiss Microscopy GmbH. All rights reserved.
-// </copyright>
-namespace DynamicSpecs.NUnit.Specs.BasicFeatures
+﻿namespace DynamicSpecs.NUnit.Specs.BasicFeatures
 {
     using System.Runtime.Remoting.Activation;
 
     using global::NUnit.Framework;
 
-    public class When_a_mock_is_requested : Specifies<TestDummyWithDependencyInjection>
+    public class When_a_mock_is_requested_for_a_class_with_two_constructors : Specifies<TestDummyWithDependencyInjection>
     {
         private IActivator initialReference;
 
@@ -43,6 +35,11 @@ namespace DynamicSpecs.NUnit.Specs.BasicFeatures
         public TestDummyWithDependencyInjection(IActivator activator)
         {
             this.Reference = activator;
+        }
+
+        public TestDummyWithDependencyInjection()
+        {
+            
         }
     }
 }

@@ -68,7 +68,7 @@
   <ItemGroup>
     <Compile Include="BasicFeatures\MockConfigurationIsProvided.cs" />
     <Compile Include="BasicFeatures\Set_data_for_container.cs" />
-    <Compile Include="BasicFeatures\When_a_mock_is_requested.cs" />
+    <Compile Include="BasicFeatures\When_a_mock_is_requested_for_a_class_with_two_constructors.cs" />
     <Compile Include="BasicFeatures\When_a_mock_is_used.cs" />
     <Compile Include="BasicFeatures\When_a_specification_is_created.cs" />
     <Compile Include="BasicFeatures\When_specific_instance_is_configured.cs" />
