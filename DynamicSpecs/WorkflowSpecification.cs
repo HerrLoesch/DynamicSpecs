@@ -3,6 +3,7 @@ namespace DynamicSpecs.Core
     using System;
     using System.Linq;
     using System.Reflection;
+    using System.Threading.Tasks;
 
     using DynamicSpecs.Core.WorkflowExtensions;
 
@@ -60,10 +61,19 @@ namespace DynamicSpecs.Core
         }
 
         /// <summary>
-        /// Method containing all code needed during the when phase.
+        /// Method containing all code needed during the given phase.
         /// </summary>
         public virtual void Given()
         {
+        }
+
+        /// <summary>
+        /// Method containing all code needed during the given phase. This is executed after void Given()
+        /// </summary>
+        /// <returns>awaitable Task</returns>
+        public virtual Task GivenAsync()
+        {
+            return Task.FromResult(true);
         }
 
         /// <summary>
@@ -71,6 +81,14 @@ namespace DynamicSpecs.Core
         /// </summary>
         public virtual void When()
         {
+        }
+
+        /// <summary>
+        /// Method containing all code needed during the when phase. This is executed after void When()
+        /// </summary>
+        public virtual Task WhenAsync()
+        {
+            return Task.FromResult(true);
         }
 
         /// <summary>
