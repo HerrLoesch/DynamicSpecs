@@ -8,42 +8,33 @@
     [TestFixture]
     public abstract class Specifies<T> : TypedWorkflowSpecification<T> where T : class
     {
+        private SpecificationEngine engine;
+
         /// <summary>
         /// Gets or sets a container holding all registered types and can resolve mocks if no registration was made for a type.
         /// </summary>
-        public TypeRegistry Registry { get; private set; }
 
-        public Specifies()
+        public Specifies() : base(new TypeStoreFactory())
         {
-            this.Registry = new TypeRegistry();
-        }
-
-        protected override IRegisterTypes GetTypeRegistry()
-        {
-            return this.Registry;
-        }
-
-        protected override IResolveTypes GetTypeResolver()
-        {
-            return this.Registry;
+            this.engine = new SpecificationEngine(this);
         }
 
         [OneTimeSetUp]
         public void Setup()
         {
-            this.Run();
+            this.engine.Run();
         }
 
         [OneTimeTearDown]
         public void AfterSpecs()
         {
-            this.OnSpecExecutionCompleted();
+            this.engine.OnSpecExecutionCompleted();
         }
 
         [TearDown]
         public void AfterThenStep()
         {
-            this.OnThenIsCompleted();
+            this.engine.OnThenIsCompleted();
         }
     }
 }

@@ -15,6 +15,5 @@
         {
             this.GetInstance<IDefaultImplementation>().Should().BeOfType<DefaultImplemenation>();
         }
-
     }
 }

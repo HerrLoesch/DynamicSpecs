@@ -84,16 +84,9 @@
         /// <exception cref="System.InvalidOperationException">No default constructor found. Extensions need default constructors or must be registered with a factory.</exception>
         public ExtensionPoint<TTargetType> With<TExtensionType>() where TExtensionType : IExtend<TTargetType>
         {
-            var type = typeof(TExtensionType);
-            var defaultConstructor = type.GetConstructors().FirstOrDefault(x => x.GetParameters().Length == 0);
+            var type = typeof(TExtensionType);           
 
-            if (defaultConstructor == null)
-            {
-                throw new InvalidOperationException(
-                    "No default constructor found. Extensions need default constructors or must be registered with a factory.");
-            }
-
-            this.Extension = defaultConstructor.Invoke(new object[0]) as IExtend<TTargetType>;
+            this.Extension = Activator.CreateInstance(type) as IExtend<TTargetType>;
 
             return this;
         }

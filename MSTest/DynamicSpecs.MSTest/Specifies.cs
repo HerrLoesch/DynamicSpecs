@@ -5,45 +5,35 @@ namespace DynamicSpecs.MSTest
     using DynamicSpecs.AutoFacItEasy;
     using DynamicSpecs.Core;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    
     public class Specifies<T> : TypedWorkflowSpecification<T> where T : class
     {
-        private readonly TypeRegistry typeRegistry;
-
         private static Specifies<T> instanceForCleanUp;
 
-        protected Specifies()
+        private SpecificationEngine engine;
+
+        protected Specifies() : base(new TypeStoreFactory()) 
         {
-            this.typeRegistry = new TypeRegistry();
             instanceForCleanUp = this;
-        }
-
-        protected override IRegisterTypes GetTypeRegistry()
-        {
-            return this.typeRegistry;
-        }
-
-        protected override IResolveTypes GetTypeResolver()
-        {
-            return this.typeRegistry;
+            this.engine = new SpecificationEngine(this);
         }
 
         [TestInitialize]
         public void Setup()
         {
-            base.Run();
+            this.engine.Run();
         }
 
         [TestCleanup]
         public void StepwiseCleanup()
         {
-            this.OnThenIsCompleted();
+            this.engine.OnThenIsCompleted();
         }
 
         [ClassCleanup]
         public static void CleanUp()
         {
-            instanceForCleanUp.OnSpecExecutionCompleted();
+            instanceForCleanUp.engine.OnSpecExecutionCompleted();
         }
     }
 }

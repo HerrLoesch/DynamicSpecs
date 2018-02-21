@@ -7,42 +7,32 @@
 
     public class SpecifiesStatically : WorkflowSpecification
     {
-        private readonly TypeRegistry typeRegistry;
 
         private static SpecifiesStatically instanceForCleanUp;
+        private SpecificationEngine engine;
 
-        protected SpecifiesStatically()
+        protected SpecifiesStatically() : base(new TypeStoreFactory())
         {
-            this.typeRegistry = new TypeRegistry();
             instanceForCleanUp = this;
-        }
-
-        protected override IRegisterTypes GetTypeRegistry()
-        {
-            return this.typeRegistry;
-        }
-
-        protected override IResolveTypes GetTypeResolver()
-        {
-            return this.typeRegistry;
+            this.engine = new SpecificationEngine(this);
         }
 
         [TestInitialize]
         public void Setup()
         {
-            base.Run();
+            this.engine.Run();
         }
 
         [TestCleanup]
         public void StepwiseCleanup()
         {
-            this.OnThenIsCompleted();
+            this.engine.OnThenIsCompleted();
         }
 
         [ClassCleanup]
         public static void CleanUp()
         {
-            instanceForCleanUp.OnSpecExecutionCompleted();
+            instanceForCleanUp.engine.OnSpecExecutionCompleted();
         }
     }
 }

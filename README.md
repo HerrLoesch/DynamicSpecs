@@ -4,7 +4,7 @@
 
 Dynamic Specs is an easy to use specfication framework. It extends NUnit, Xunit.Net, MSTest or other similiar testing frameworks with a BDD style workflow.
 
-##Table of contents
+## Table of contents
 - [Why another BDD framework?](#why-another-bdd-framework)
 - [How to use it with NUnit?](#how-to-use-it-with-nunit)
 	- [Basic Structure](#basic-structure)
@@ -17,22 +17,22 @@ Dynamic Specs is an easy to use specfication framework. It extends NUnit, Xunit.
 
 
 
-##Why another BDD framework?
+## Why another BDD framework?
 There are many great BDD frameworks like [MSpec](https://github.com/machine/machine.specifications) or [NSpec](http://nspec.org/) out there. Unfortunatly, they need an own runner or additional tooling, which why they are not easy to integrate in every bodys tool chain. This happens espacialy in cases where 3rd party tools during builds have to be avoided and people just want to run every thing based on Microsoft software.
 
 The idea behind Dynamic Specs is it, to use the infrastructure of widely known frameworks like MS Test and NUnit and extend these frameworks with features to run BDD like tests. The advantage of this is, that Dynamic Specs can be used where ever the host system is used and you can not only write unit tests but also integration and system test in an easy way.
 
 The basic structure and ideas are taken from [SpecsFor](https://github.com/MattHoneycutt/SpecsFor) which has the small disatvantage that it needs a specific set of frameworks and tools to work.
 
-##Where can I get it?
+## Where can I get it?
 That depends on what you need, because DynamicSpecs consists of four parts:
 - [DynamicSpecs Core](https://www.nuget.org/packages/DynamicSpecs.Core/) contains the actual engine for each specification as well as the plattform independent parts holding every thing together.
 - [DynamicSpecs.AutoFacItEasy](https://www.nuget.org/packages/DynamicSpecs.AutoFacItEasy/) contains an implementation of the IRegisterTypes and IResolveTypes interfaces which uses [AutoFac](http://autofac.org/) and [FakeItEasy](http://fakeiteasy.github.io/) to provide an auto mocker. You don't need this if you want to use another IoC container or test isolation framework.
 - [DynamicSpecs.MSTest](https://www.nuget.org/packages/DynamicSpecs.Core/) is an implementation for the .Net version of MS Test and uses DynamicSpecs.AutoFacItEasy for auto mocking.
 - [DynamicSpecs.NUnit](https://www.nuget.org/packages/DynamicSpecs.NUnit/) is an implementation for the .Net version of NUnit and uses DynamicSpecs.AutoFacItEasy for auto mocking.
 
-##How to use it with NUnit?
-###Basic Structure
+## How to use it with NUnit?
+### Basic Structure
 The NUnit version of DynamicSpecs has every thing you need to write unit tests without any boiler plate code. Therefor you just have to create a class and inherit from the *Specfies* class of DynamicSpecs. *Specifies* gets the type of the system under tests and will handle every thing neccessary to create an instance of it. During this instantiation, it will inject [FakeItEasy](http://fakeiteasy.github.io/) mock objects into the constructor. These objects can be requested with the *GetInstace* method of *Specifcies* and can than be used to configure specific behaviors.
 
 Such a configuration should be done during the *Given* phase of a spec because the given phase is used to setup the precondition for every test run. The action you want to check is performed during the *When* phase. If you want to get access to your system under test, you can do it by simply using the SUT property.
@@ -66,7 +66,7 @@ After all this we come to the real action, because you now have to check the out
     }
 ```
 
-###Reduce boiler plate code
+### Reduce boiler plate code
 The more specs you create, the more code will double. You can reduce this with support classes encapsulating you preconditions.
 
 ```C#
@@ -110,7 +110,7 @@ These classes are either be instanciated by you and used as a parameter for the 
     }
 ```
 
-###Integration tests without boiler plate code
+### Integration tests without boiler plate code
 Dynamic Specs used internally an extendable workflow engine. The workflow has typically seven differnt steps:
 
  1. Register all needed types
@@ -238,17 +238,17 @@ In combination with support classes, you get tests which focus just on the thing
     }
 ```
 
-##How to use it with MS Test?
+## How to use it with MS Test?
 Todo...
 
-##How to use it with XUnit.Net?
+## How to use it with XUnit.Net?
 Todo...
 
 ##How to use it with an other framework?
 Todo...
 
-##FAQ
-###How do I register concrete types before the SUT is created?
+## FAQ
+### How do I register concrete types before the SUT is created?
 Simply override the RegisterTypes method of your specification and use the type registration to register concrete types. This registration can handle generic types as well as class instances.
 ```C#
         protected override void RegisterTypes(IRegisterTypes typeRegistration)
@@ -257,7 +257,7 @@ Simply override the RegisterTypes method of your specification and use the type 
 	    typeRegistration.Register<ILogger>(new Logger());
         }
 ```
-###How do I get the instance injected to my SUT?
+### How do I get the instance injected to my SUT?
 Just use the GetInstance method with the type you want to get.
 ```C#
         [Test]
@@ -270,7 +270,7 @@ Just use the GetInstance method with the type you want to get.
         }
 ```
 
-###How do I get an instance within a support class?
+### How do I get an instance within a support class?
 Same as in specifications, use GetInstance on the specification you get as a parameter.
 ```C#
     public class Data_can_be_imported : ISupport
@@ -290,7 +290,7 @@ Same as in specifications, use GetInstance on the specification you get as a par
     }
 ```
 
-###How can I configure an extension for all of my specifications?
+### How can I configure an extension for all of my specifications?
 All specifications implement the ISpecify interface thus you can register your extension for this interface and all specifications will be covered.
 ```C#
     [SetUpFixture]
@@ -304,3 +304,27 @@ All specifications implement the ISpecify interface thus you can register your e
     }
 ```
 
+### How can I register a concrete type for an interface for all my specifications?
+You need a configuration class inheriting from Extensions class. This registers your type extension for ISpecify and is triggered before the creation of the SUT.
+```C#
+    [SetUpFixture]
+    public class Configuration : Extensions
+    {
+        [SetUp]
+        public void Setup()
+        {
+            Extend<ISpecify>().With<DefaultTypeProvider>().Before(WorkflowPosition.SUTCreation);
+        }
+    }
+```
+
+Then you need the actual extension class which uses the TypeRegistry property of the target specification to register all types.
+```C#
+    public class DefaultTypeProvider : IExtend<ISpecify>
+    {
+        public void Extend(ISpecify target, WorkflowPosition currentPosition)
+        {
+            target.TypeRegistry.Register<ConcreteClass, IAbstractInterface>();
+        }
+    }
+```
