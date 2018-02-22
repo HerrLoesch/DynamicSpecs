@@ -1,9 +1,9 @@
+using System.Reflection;
+
 namespace DynamicSpecs.Core
 {
     using System;
     using System.Linq;
-    using System.Reflection;
-
     using DynamicSpecs.Core.WorkflowExtensions;
 
     public abstract class WorkflowSpecification : ISpecify
@@ -146,8 +146,8 @@ namespace DynamicSpecs.Core
 
         private void RegisterDefaultTypes()
         {
-            var typeAttributes = this.GetType().GetRuntimeFields().Select(x => x.GetCustomAttributes());
-            var typeRequests = typeAttributes.Where(x => x.GetType() == typeof(RequestTypeAttribute)).Select(y => ((RequestTypeAttribute)y).RequestedType);
+            var typeAttributes = this.GetType().GetTypeInfo().GetCustomAttributes(typeof(RequestTypeAttribute), true);
+            var typeRequests = typeAttributes.Select(y => ((RequestTypeAttribute)y).RequestedType).ToList();
             var typesToRegister = Extensions.DefaultTypeRegistrations.Where(x => typeRequests.Any(x.IsApplicableFor));
 
             foreach (var distinctTypeHandler in typesToRegister)

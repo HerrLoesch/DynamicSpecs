@@ -1,4 +1,6 @@
-﻿namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes
+﻿using DynamicSpecs.MSTest.Specs.WorkflowExtensions.DefaultImplementationRegistration;
+
+namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes
 {
     using DynamicSpecs.Core.WorkflowExtensions;
     using DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes.DataProvider;
@@ -12,6 +14,8 @@
         [AssemblyInitialize]
         public static void RegisterExtensions(TestContext context)
         {
+            Provide<DefaultImplemenation, IDefaultImplementation>();
+
             Extend<IRequestDataByDefault>().With<DataByDefault>();
 
             Extend<IRequestDataBeforeTypeRegistration>().With<DataBeforeTypeRegistration>().Before(WorkflowPosition.TypeRegistration);
