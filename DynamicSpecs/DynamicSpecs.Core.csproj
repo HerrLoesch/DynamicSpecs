@@ -37,6 +37,9 @@
     <Compile Include="..\Shared.AssemblyInfo.cs">
       <Link>Properties\Shared.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AsyncHelper\AsyncTestUtilities.cs" />
+    <Compile Include="AsyncHelper\GeneralThreadAffineContext.cs" />
+    <Compile Include="AsyncHelper\SynchronizationContextSwitcher.cs" />
     <Compile Include="IRegisterTypes.cs" />
     <Compile Include="IResolveTypes.cs" />
     <Compile Include="ISpecify.cs" />
