@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DynamicSpecs.Core.AsyncHelper;
 using DynamicSpecs.Core.WorkflowExtensions;
 
 namespace DynamicSpecs.Core
@@ -56,9 +57,13 @@ namespace DynamicSpecs.Core
 
             this.specification.Given();
 
+            GeneralThreadAffineContext.Run(this.specification.GivenAsync);
+
             this.ExecuteExtensions(WorkflowPosition.When);
 
             this.specification.When();
+
+            GeneralThreadAffineContext.Run(this.specification.WhenAsync);
         }
 
         /// <summary>
@@ -94,7 +99,7 @@ namespace DynamicSpecs.Core
         {
             this.specificationsBaseTypes = this.specification.GetType().GetTypeInfo().ImplementedInterfaces.ToArray();
         }
-
+        
         private Type[] specificationsBaseTypes;
 
     }
