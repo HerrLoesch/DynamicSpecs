@@ -11,8 +11,9 @@
     <iconUrl>https://raw.githubusercontent.com/HerrLoesch/DynamicSpecs/master/Ressources/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Extensions can now be registered for multiple steps and they can determin in which step the are executed.</releaseNotes>
-    <copyright>Copyright 2016 Hendrik Loesch</copyright>
+    <releaseNotes>Thanks to @Firedragonweb we support now asynchronouse tests with GivenAsnyc and WhenAsync
+We can also request types by using the RequestType attribute. In this case a default type will be injected to our SUT.</releaseNotes>
+    <copyright>Copyright 2018 Hendrik Loesch</copyright>
     <tags>DynamicSpecs Specification Test NUnit BDD TDD</tags>
     <dependencies>
       <dependency id="DynamicSpecs.AutoFacItEasy" version="$version$" />

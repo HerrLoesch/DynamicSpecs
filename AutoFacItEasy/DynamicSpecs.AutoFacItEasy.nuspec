@@ -11,8 +11,9 @@
     <iconUrl>https://raw.githubusercontent.com/HerrLoesch/DynamicSpecs/master/Ressources/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes></releaseNotes>
-    <copyright>Copyright 2016 Hendrik Loesch</copyright>
+    <releaseNotes>Thanks to @Firedragonweb we support now asynchronouse tests with GivenAsnyc and WhenAsync
+We can also request types by using the RequestType attribute. In this case a default type will be injected to our SUT</releaseNotes>
+    <copyright>Copyright 2018 Hendrik Loesch</copyright>
     <tags>DynamicSpecs Specification AutoFac BDD TDD</tags>
     <dependencies>
       <dependency id="DynamicSpecs.Core" version="$version$" />
