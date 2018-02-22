@@ -1,6 +1,7 @@
-﻿using DynamicSpecs.MSTest.Specs.WorkflowExtensions.DefaultImplementationRegistration;
+﻿
+using DynamicSpecs.MSTest.Specs.WorkflowExtensions.DefaultImplementationRegistration;
 
-namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes
+namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions
 {
     using DynamicSpecs.Core.WorkflowExtensions;
     using DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes.DataProvider;

@@ -84,8 +84,12 @@
     <Compile Include="ExampleClasses\DummyClass.cs" />
     <Compile Include="ExampleClasses\IAmAServiceDummy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkflowExtensions\Configuration.cs" />
     <Compile Include="WorkflowExtensions\DataProvider.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Configuration.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\DefaultImplemenation.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\IDefaultImplementation.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\IRequestDefaultImplementation.cs" />
+    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\WhenATypeIsRegisteredAsDefaultImplementation.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeGiven.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeSUTCreation.cs" />
     <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeTypeRegistration.cs" />
