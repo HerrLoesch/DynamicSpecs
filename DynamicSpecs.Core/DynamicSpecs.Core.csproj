@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>DynamicSpecs</PackageId>
+    <Description>A dynamic specification framework for C#.</Description>
+    <Authors>Hendrik Loesch</Authors>
+    <Product>DynamicSpecs</Product>
+    <Copyright>Copyright © 2018 Hendrik Loesch</Copyright>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+  </PropertyGroup>
+
+</Project>

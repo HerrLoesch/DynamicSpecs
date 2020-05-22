@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DynamicSpecs.XUnit.Specs</RootNamespace>
     <AssemblyName>DynamicSpecs.XUnit.Specs</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -70,8 +70,8 @@
       <Project>{7aa6608f-d651-4998-84a8-7e58838fd0fd}</Project>
       <Name>DynamicSpecs.AutoFacItEasy</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\DynamicSpecs\DynamicSpecs.Core.csproj">
-      <Project>{5f4822a3-81c4-4cde-a802-24b37c6044f5}</Project>
+    <ProjectReference Include="..\..\DynamicSpecs.Core\DynamicSpecs.Core.csproj">
+      <Project>{2ea9d7fd-9ff7-4d44-a983-fb6bd8d960be}</Project>
       <Name>DynamicSpecs.Core</Name>
     </ProjectReference>
   </ItemGroup>
