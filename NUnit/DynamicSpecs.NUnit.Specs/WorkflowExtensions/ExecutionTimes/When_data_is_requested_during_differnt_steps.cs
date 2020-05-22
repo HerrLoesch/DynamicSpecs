@@ -18,13 +18,13 @@
         /// </summary>
         public override void Given()
         {
-            this.GivenData.Should().Be(WorkflowExtensions.DataProvider.Data);
+            this.GivenData.Should().Be(StatelessMultipleDataProvider.GivenData);
         }
 
         [Test]
         public void Then_the_data_is_provided_during_each_configured_step()
         {
-            this.WhenData.Should().Be(WorkflowExtensions.DataProvider.Data);
+            this.WhenData.Should().Be(StatelessMultipleDataProvider.WhenData);
         }
     }
 }
