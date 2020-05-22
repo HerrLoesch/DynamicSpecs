@@ -107,7 +107,7 @@
       <Name>DynamicSpecs.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\DynamicSpecs.NUnit\DynamicSpecs.NUnit.csproj">
-      <Project>{715e462a-e277-4587-8764-77ba2365f4f6}</Project>
+      <Project>{c154db58-b2a1-4e48-b052-7db0bba00aee}</Project>
       <Name>DynamicSpecs.NUnit</Name>
     </ProjectReference>
   </ItemGroup>
