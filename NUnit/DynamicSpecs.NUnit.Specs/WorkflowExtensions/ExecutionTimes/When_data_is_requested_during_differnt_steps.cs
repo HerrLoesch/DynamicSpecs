@@ -18,13 +18,13 @@
         /// </summary>
         public override void Given()
         {
-            this.GivenData.ShouldBeEquivalentTo(StatelessMultipleDataProvider.GivenData);
+            this.GivenData.Should().Be(WorkflowExtensions.DataProvider.Data);
         }
 
         [Test]
         public void Then_the_data_is_provided_during_each_configured_step()
         {
-            this.WhenData.ShouldBeEquivalentTo(StatelessMultipleDataProvider.WhenData);
+            this.WhenData.Should().Be(WorkflowExtensions.DataProvider.Data);
         }
     }
 }
