@@ -22,7 +22,7 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
         [Test]
         public void Then_data_is_available_during_type_registration()
         {
-            this.DataOfRegisterTypes.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+            this.DataOfRegisterTypes.Should().Be(WorkflowExtensions.DataProvider.Data);
         }
     }
 }

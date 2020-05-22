@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
+﻿namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
 {
     using FluentAssertions;
 
@@ -14,13 +8,13 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
     {
         public override void Given()
         {
-            this.Data.ShouldBeEquivalentTo(1);
+            this.Data.Should().Be(1);
         }
 
         [Test]
         public void Then_the_extension_is_executed_for_all_steps()
         {
-            this.Data.ShouldBeEquivalentTo(2);
+            this.Data.Should().Be(2);
         }
 
         public int Data { get; set; }

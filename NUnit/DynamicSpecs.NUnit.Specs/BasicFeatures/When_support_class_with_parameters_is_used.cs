@@ -19,7 +19,7 @@
         [Test]
         public void Then_the_data_is_available_for_the_support_class()
         {
-            this.SUT.Data.ShouldBeEquivalentTo(42);
+            this.SUT.Data.Should().Be(42);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes
         [TestMethod]
         public void Then_data_is_available_during_given_phase()
         {
-            this.DataOfWhen.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+            this.DataOfWhen.Should().Be(WorkflowExtensions.DataProvider.Data);
         }
     }
 }

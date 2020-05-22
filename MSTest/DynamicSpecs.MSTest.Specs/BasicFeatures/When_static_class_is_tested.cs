@@ -19,7 +19,7 @@
         [TestMethod]
         public void Then_no_type_is_needed_for_specs()
         {
-            StaticDummy.Data.ShouldBeEquivalentTo(5);
+            StaticDummy.Data.Should().Be(5);
         }
     }
 

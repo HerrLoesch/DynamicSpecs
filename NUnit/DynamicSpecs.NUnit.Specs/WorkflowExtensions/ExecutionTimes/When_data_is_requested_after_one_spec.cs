@@ -22,7 +22,7 @@
             {
                 if (finishedOneSpec)
                 {
-                    Data.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+                    Data.Should().Be(WorkflowExtensions.DataProvider.Data);
                 }
 
                 finishedOneSpec = true;
@@ -36,7 +36,7 @@
             {
                 if (finishedOneSpec)
                 {
-                    Data.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+                    Data.Should().Be(WorkflowExtensions.DataProvider.Data);
                 }
 
                 finishedOneSpec = true;

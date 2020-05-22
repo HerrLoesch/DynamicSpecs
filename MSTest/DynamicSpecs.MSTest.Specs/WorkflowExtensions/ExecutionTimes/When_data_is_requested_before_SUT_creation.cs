@@ -22,7 +22,7 @@ namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes
         [TestMethod]
         public void Then_data_is_available()
         {
-            this.DataOfCreatSut.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+            this.DataOfCreatSut.Should().Be(WorkflowExtensions.DataProvider.Data);
         }
     }
 }
