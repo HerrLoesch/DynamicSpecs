@@ -102,10 +102,6 @@
     <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\WhenATypeIsRegisteredAsDefaultImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AutoFacItEasy\DynamicSpecs.AutoFacItEasy.csproj">
-      <Project>{7aa6608f-d651-4998-84a8-7e58838fd0fd}</Project>
-      <Name>DynamicSpecs.AutoFacItEasy</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\DynamicSpecs.Core\DynamicSpecs.Core.csproj">
       <Project>{2ea9d7fd-9ff7-4d44-a983-fb6bd8d960be}</Project>
       <Name>DynamicSpecs.Core</Name>

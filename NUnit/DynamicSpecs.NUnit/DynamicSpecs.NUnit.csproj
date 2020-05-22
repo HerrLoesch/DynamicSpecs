@@ -52,8 +52,8 @@
     <Compile Include="SpecifiesStatically.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AutoFacItEasy\DynamicSpecs.AutoFacItEasy.csproj">
-      <Project>{7aa6608f-d651-4998-84a8-7e58838fd0fd}</Project>
+    <ProjectReference Include="..\..\DynamicSpecs.AutoFacItEasy\DynamicSpecs.AutoFacItEasy.csproj">
+      <Project>{2788a8d5-e048-4686-ac03-6cf14425c896}</Project>
       <Name>DynamicSpecs.AutoFacItEasy</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DynamicSpecs.Core\DynamicSpecs.Core.csproj">
