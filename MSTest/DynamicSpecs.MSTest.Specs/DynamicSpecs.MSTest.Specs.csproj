@@ -94,7 +94,7 @@
       <Name>DynamicSpecs.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\DynamicSpecs.MSTest\DynamicSpecs.MSTest.csproj">
-      <Project>{c3ad1ddd-a44f-4e39-8582-b9b49b62aedf}</Project>
+      <Project>{3d37ad7e-a891-4b21-9e3f-edb8e8cf75cc}</Project>
       <Name>DynamicSpecs.MSTest</Name>
     </ProjectReference>
   </ItemGroup>
