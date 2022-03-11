@@ -5,7 +5,7 @@ namespace DynamicSpecs.MSTest
     using DynamicSpecs.AutoFacItEasy;
     using DynamicSpecs.Core;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    
+
     public class Specifies<T> : TypedWorkflowSpecification<T> where T : class
     {
         private static Specifies<T> instanceForCleanUp;

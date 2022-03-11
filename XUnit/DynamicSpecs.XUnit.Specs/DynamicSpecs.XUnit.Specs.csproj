@@ -1,90 +1,34 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{160A72F7-8E00-4368-B87F-0FF117B45AD4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DynamicSpecs.XUnit.Specs</RootNamespace>
-    <AssemblyName>DynamicSpecs.XUnit.Specs</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Autofac.Extras.FakeItEasy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Autofac.Extras.FakeItEasy.5.0.0\lib\net45\Autofac.Extras.FakeItEasy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FakeItEasy, Version=3.4.2.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FakeItEasy.3.4.2\lib\net45\FakeItEasy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FluentAssertions, Version=4.19.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.19.2\lib\net45\FluentAssertions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FluentAssertions.Core, Version=4.19.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.19.2\lib\net45\FluentAssertions.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ExampleClasses\DummyClass.cs" />
-    <Compile Include="ExampleClasses\IAmAServiceDummy.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\AutoFacItEasy\DynamicSpecs.AutoFacItEasy.csproj">
-      <Project>{7aa6608f-d651-4998-84a8-7e58838fd0fd}</Project>
-      <Name>DynamicSpecs.AutoFacItEasy</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DynamicSpecs\DynamicSpecs.Core.csproj">
-      <Project>{5f4822a3-81c4-4cde-a802-24b37c6044f5}</Project>
-      <Name>DynamicSpecs.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<AssemblyTitle>DynamicSpecs.XUnit.Specs</AssemblyTitle>
+		<Product>DynamicSpecs.XUnit.Specs</Product>
+		<Copyright>Copyright ©  2016</Copyright>
+		<OutputPath>bin\$(Configuration)\</OutputPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="6.3.0" />
+		<PackageReference Include="Autofac.Extras.FakeItEasy" Version="5.0.0" />
+		<PackageReference Include="FakeItEasy" Version="3.4.2" />
+		<PackageReference Include="FluentAssertions" Version="4.19.2" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System.Net.Http" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\AutoFacItEasy\DynamicSpecs.AutoFacItEasy.csproj" />
+		<ProjectReference Include="..\..\DynamicSpecs\DynamicSpecs.Core.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="MockConfigurationIsProvided.cs" />
+		<Compile Remove="When_a_mock_is_used.cs" />
+		<Compile Remove="When_a_specification_is_created.cs" />
+		<Compile Remove="When_specific_instance_is_configured.cs" />
+		<Compile Remove="When_specific_type_is_configured.cs" />
+		<Compile Remove="When_static_class_is_tested.cs" />
+		<Compile Remove="When_using_support_classes_during_given_phase.cs" />
+		<Compile Remove="When_using_support_classes_during_when_phase.cs" />
+	</ItemGroup>
 </Project>

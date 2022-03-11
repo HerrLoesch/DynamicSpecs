@@ -1,164 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90C9DEEE-F7B7-4068-97DA-2FFEC0DD71D5}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DynamicSpecs.NUnit.Specs</RootNamespace>
-    <AssemblyName>DynamicSpecs.NUnit.Specs</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Autofac.Extras.FakeItEasy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Autofac.Extras.FakeItEasy.5.0.0\lib\net45\Autofac.Extras.FakeItEasy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FakeItEasy, Version=3.4.2.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FakeItEasy.3.4.2\lib\net45\FakeItEasy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FluentAssertions, Version=4.19.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.19.2\lib\net45\FluentAssertions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FluentAssertions.Core, Version=4.19.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.19.2\lib\net45\FluentAssertions.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BasicFeatures\MockConfigurationIsProvided.cs" />
-    <Compile Include="BasicFeatures\Set_data_for_container.cs" />
-    <Compile Include="BasicFeatures\When_a_mock_is_requested_for_a_class_with_two_constructors.cs" />
-    <Compile Include="BasicFeatures\When_a_mock_is_used.cs" />
-    <Compile Include="BasicFeatures\When_a_specification_is_created.cs" />
-    <Compile Include="BasicFeatures\When_specific_instance_is_configured.cs" />
-    <Compile Include="BasicFeatures\When_specific_type_is_configured.cs" />
-    <Compile Include="BasicFeatures\When_static_class_is_tested.cs" />
-    <Compile Include="BasicFeatures\When_support_class_with_parameters_is_used.cs" />
-    <Compile Include="BasicFeatures\When_support_class_with_parameters_is_used_during_given_phase.cs" />
-    <Compile Include="BasicFeatures\When_using_support_classes_during_given_phase.cs" />
-    <Compile Include="BasicFeatures\When_using_support_classes_during_when_phase.cs" />
-    <Compile Include="ExampleClasses\DataContainer.cs" />
-    <Compile Include="ExampleClasses\DummyClass.cs" />
-    <Compile Include="ExampleClasses\IAmAServiceDummy.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\FactoryConfiguration.cs" />
-    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\ConcreteClass.cs" />
-    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\IDummyInterface.cs" />
-    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\TypeProvider.cs" />
-    <Compile Include="WorkflowExtensions\ConfigureTypeRegistration\When_a_concrete_type_is_registered.cs" />
-    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\Configuration.cs" />
-    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\DefaultImplemenation.cs" />
-    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\IDefaultImplementation.cs" />
-    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\IRequestDefaultImplementation.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeThenIsCompleted.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeGiven.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeSUTCreation.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeTypeRegistration.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataBeforeWhen.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\DataByDefault.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\StatefullMultipleDataProvider.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\DataProvider\StatelessMultipleDataProvider.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeGiven.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeSUTCreation.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeTypeRegistration.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Configuration.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeWhen.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataByDefault.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestDataBeforeThenIsCompleted.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\Interfaces\IRequestStatelessData.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\IRequestStatefullData.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\When_an_extension_is_used_for_different_workflow_steps.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_after_one_spec.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_before_given_phase.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_before_SUT_creation.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_before_when_phase.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_during_differnt_steps.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_for_a_default_step.cs" />
-    <Compile Include="WorkflowExtensions\ExecutionTimes\When_data_is_requested_for_each_phase.cs" />
-    <Compile Include="WorkflowExtensions\FactorybasedRegistration\FactoryConfiguration.cs" />
-    <Compile Include="WorkflowExtensions\FactorybasedRegistration\When_data_is_requested_based_on_a_factory_configuration.cs" />
-    <Compile Include="WorkflowExtensions\DataProvider.cs" />
-    <Compile Include="WorkflowExtensions\IProvideData.cs" />
-    <Compile Include="WorkflowExtensions\IRequestData.cs" />
-    <Compile Include="WorkflowExtensions\TypebasedRegistration\TypeBasedConfiguration.cs" />
-    <Compile Include="WorkflowExtensions\TypebasedRegistration\WhenDataIsRequestedBasedOnATypeConfiguration.cs" />
-    <Compile Include="WorkflowExtensions\DefaultImplementationRegistration\WhenATypeIsRegisteredAsDefaultImplementation.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\AutoFacItEasy\DynamicSpecs.AutoFacItEasy.csproj">
-      <Project>{7aa6608f-d651-4998-84a8-7e58838fd0fd}</Project>
-      <Name>DynamicSpecs.AutoFacItEasy</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DynamicSpecs.NUnit\DynamicSpecs.NUnit.csproj">
-      <Project>{715e462a-e277-4587-8764-77ba2365f4f6}</Project>
-      <Name>DynamicSpecs.NUnit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DynamicSpecs\DynamicSpecs.Core.csproj">
-      <Project>{5f4822a3-81c4-4cde-a802-24b37c6044f5}</Project>
-      <Name>DynamicSpecs.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+		<AssemblyTitle>DynamicSpecs.NUnit.Specs</AssemblyTitle>
+		<Product>DynamicSpecs.NUnit.Specs</Product>
+		<Copyright>Copyright ©  2015</Copyright>
+		<OutputPath>bin\$(Configuration)\</OutputPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="6.3.0" />
+		<PackageReference Include="Autofac.Extras.FakeItEasy" Version="5.0.0" />
+		<PackageReference Include="FakeItEasy" Version="3.4.2" />
+		<PackageReference Include="FluentAssertions" Version="4.19.2" />
+		<PackageReference Include="NUnit" Version="3.7.1" />
+		<PackageReference Include="NUnit3TestAdapter" Version="3.7.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\AutoFacItEasy\DynamicSpecs.AutoFacItEasy.csproj" />
+		<ProjectReference Include="..\DynamicSpecs.NUnit\DynamicSpecs.NUnit.csproj" />
+		<ProjectReference Include="..\..\DynamicSpecs\DynamicSpecs.Core.csproj" />
+	</ItemGroup>
 </Project>

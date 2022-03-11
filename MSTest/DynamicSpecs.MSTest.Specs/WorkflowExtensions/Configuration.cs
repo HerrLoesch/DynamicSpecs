@@ -6,7 +6,6 @@ namespace DynamicSpecs.MSTest.Specs.WorkflowExtensions
     using DynamicSpecs.Core.WorkflowExtensions;
     using DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes.DataProvider;
     using DynamicSpecs.MSTest.Specs.WorkflowExtensions.ExecutionTimes.Interfaces;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
