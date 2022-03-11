@@ -11,7 +11,7 @@
         [Test]
         public void Then_the_data_is_provided()
         {
-            this.Data.ShouldBeEquivalentTo(DataProvider.Data);
+            this.Data.Should().Be(DataProvider.Data);
         }
     }
 }
