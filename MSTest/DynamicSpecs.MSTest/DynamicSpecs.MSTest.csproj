@@ -2,26 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-
-      <PackageId>DynamicSpecs.MSTest</PackageId>
-      <Description>DynamicSpecs MSTest integration</Description>
-      <Authors>Hendrik Loesch</Authors>
-      <Product>DynamicSpecs</Product>
-      <Copyright>Copyright © 2018 Hendrik Loesch</Copyright>
-      <AssemblyVersion>3.0.0.0</AssemblyVersion>
-      <FileVersion>3.0.0.0</FileVersion>
-      <Version>3.0.0</Version>
+    <PackageId>DynamicSpecs.MSTest</PackageId>
+    <Description>DynamicSpecs MSTest integration</Description>
+    <Authors>Hendrik Loesch</Authors>
+    <Product>DynamicSpecs</Product>
+    <Copyright>Copyright © 2022 Hendrik Loesch</Copyright>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Version>3.0.0</Version>
+    <IsTestProject>false</IsTestProject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\DynamicSpecs.AutoFacItEasy\DynamicSpecs.AutoFacItEasy.csproj" />
     <ProjectReference Include="..\..\DynamicSpecs.Core\DynamicSpecs.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\ReferenceAssemblies\v4.0\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

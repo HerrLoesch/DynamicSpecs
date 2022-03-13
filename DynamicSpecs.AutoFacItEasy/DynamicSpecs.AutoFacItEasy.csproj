@@ -13,9 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="5.2.0" />
-    <PackageReference Include="Autofac.Extras.FakeItEasy" Version="6.0.0" />
-    <PackageReference Include="FakeItEasy" Version="3.4.2" />
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac.Extras.FakeItEasy" Version="7.0.0" />
+    <PackageReference Include="FakeItEasy" Version="7.3.1" />
   </ItemGroup>
 
   <ItemGroup>
