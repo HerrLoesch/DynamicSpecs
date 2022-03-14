@@ -20,7 +20,7 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
         [Test]
         public void Then_data_is_available_during_given_phase()
         {
-            this.DataOfGiven.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+            this.DataOfGiven.Should().Be(WorkflowExtensions.DataProvider.Data);
         }
     }
 }

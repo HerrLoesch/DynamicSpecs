@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>TypeRegistry for DynamicSpecs, based on AutoFac and FakeItEasy</Description>
+    <Authors>Hendrik Loesch</Authors>
+    <Product>DynamicSpecs</Product>
+    <Copyright>Copyright © 2022 Hendrik Loesch</Copyright>
+    <AssemblyVersion>3.0.1.0</AssemblyVersion>
+    <FileVersion>3.0.1.0</FileVersion>
+    <Version>3.0.1</Version>
+    <IsTestProject>false</IsTestProject>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/HerrLoesch/DynamicSpecs</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/HerrLoesch/DynamicSpecs</RepositoryUrl>
+    <PackageTags>DynamicSpecs; Specification; Test; MSTest; BDD; TDD;</PackageTags>
+    <PackageReleaseNotes>Update on .NET Standard 2.0</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac.Extras.FakeItEasy" Version="7.0.0" />
+    <PackageReference Include="FakeItEasy" Version="7.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicSpecs.Core\DynamicSpecs.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Ressources\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

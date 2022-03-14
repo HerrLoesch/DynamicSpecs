@@ -21,7 +21,7 @@ namespace DynamicSpecs.NUnit.Specs.WorkflowExtensions.ExecutionTimes
         [Test]
         public void Then_data_is_available()
         {
-            this.DataOfCreatSut.ShouldBeEquivalentTo(WorkflowExtensions.DataProvider.Data);
+            this.DataOfCreatSut.Should().Be(WorkflowExtensions.DataProvider.Data);
         }
     }
 }
