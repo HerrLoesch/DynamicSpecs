@@ -1,5 +1,3 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/w325gb28ccbai14w?svg=true)](https://ci.appveyor.com/project/HerrLoesch/dynamicspecs)
-
 <img src="/Ressources/logo.png" width="200" /> 
 
 Dynamic Specs is an easy to use specfication framework. It extends NUnit, Xunit.Net, MSTest or other similiar testing frameworks with a BDD style workflow.
