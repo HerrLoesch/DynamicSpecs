@@ -9,8 +9,6 @@ Dynamic Specs is an easy to use specfication framework. It extends NUnit, Xunit.
 	- [Reduce boiler plate code](#reduce-boiler-plate-code)
 	- [Integration tests without boiler plate code](#integration-tests-without-boiler-plate-code)
 - [How to use it with MS Test?](#how-to-use-it-with-ms-test)
-- [How to use it with XUnit.net?](#how-to-use-it-with-xunit.net)
-- [How to use it with an other framework?](#how-to-use-it-with-an-other-framework)
 - [FAQ](#faq)
 
 
@@ -237,13 +235,35 @@ In combination with support classes, you get tests which focus just on the thing
 ```
 
 ## How to use it with MS Test?
-Todo...
+The usage with MS Test follows the same principle like it does for NUnit. The main differences are the used attributes:
 
-## How to use it with XUnit.Net?
-Todo...
+```C#
+    [TestClass]
+    public class WhenPersonSelectionIsShown : Specifies<PersonSelectionViewModel>
+    {
+        public override void Given()
+        {
+            this.AvailablePersons = new List<Person>(){new Person()};
 
-##How to use it with an other framework?
-Todo...
+            var repository = this.GetInstance<IRepository>();
+
+            A.CallTo(() => repository.GetPersons()).Returns(this.AvailablePersons);
+        }
+
+        public override void When()
+        {
+            this.SUT.OnShow();
+        }
+
+        [TestMethod]
+        public void ThenAllAvailablePersonsAreShown()
+        {
+            Assert.AreEqual(this.AvailablePersons.Count(), this.SUT.Persons.Count());
+        }
+
+        public IEnumerable<Person> AvailablePersons { get; set; }
+    }
+```
 
 ## FAQ
 ### How do I register concrete types before the SUT is created?
