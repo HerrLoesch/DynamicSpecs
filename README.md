@@ -1,3 +1,5 @@
+![example workflow](https://github.com/HerrLoesch/DynamicSpecs/actions/workflows/dotnet-desktop.yml/badge.svg)
+
 <img src="/Ressources/logo.png" width="200" /> 
 
 Dynamic Specs is an easy to use specfication framework. It extends NUnit, Xunit.Net, MSTest or other similiar testing frameworks with a BDD style workflow.
