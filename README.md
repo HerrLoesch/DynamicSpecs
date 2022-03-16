@@ -235,7 +235,7 @@ In combination with support classes, you get tests which focus just on the thing
 ```
 
 ## How to use it with MS Test?
-The usage with MS Test follows the same principle like it does for NUnit. The main differences are the used attributes:
+The usage with MS Test follows the same principles like it does for NUnit. The main differences are the used attributes:
 
 ```C#
     [TestClass]
